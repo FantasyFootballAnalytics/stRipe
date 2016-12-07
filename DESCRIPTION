@@ -1,0 +1,24 @@
+Package: stRipe
+Type: Package
+Title: Wrapper for Stripe API
+Version: 0.1.0
+Author: Dennis Andersen
+Maintainer: Dennis Andersen <andersen.dennis@live.com>
+Description: More about what it does (maybe more than one line)
+License: What license is it under?
+LazyData: TRUE
+Imports:
+    R6
+RoxygenNote: 5.0.1
+Collate:
+    'card.R'
+    'coupon.R'
+    'discount.R'
+    'error_content.R'
+    'invoice.R'
+    'object_list.R'
+    'plan.R'
+    'stRipe.R'
+    'stripeApp.R'
+    'subscription.R'
+    'token.R'
