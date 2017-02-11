@@ -219,3 +219,62 @@ create_subscription <- function(plan_id, customer_id,  card_token = NULL,
   new_sub <- do.call("add_sub", create_args)
   return(new_sub)
 }
+
+#' Retrieve a subscription
+#'
+#' Retrieves subscription with the provided ID and returns the
+#' \link{stripe_subcription} object representing the requested subscription
+#'
+#' @param id The identifier of the subscription to be retrieved.
+#' @export
+get_subscription <- function(id){
+  sub <- stripe_subscription$new()$retrieve(id)
+  return(sub)
+}
+
+#' Update a subscription
+#'
+#' Updates the subscription with the provided ID. Enables changing plans,
+#' applying discounts, prorating, and updating trial end dates.
+#'
+#' @param subscription_id Identifier of subscription to be updated
+#' @param plan The identifier of the plan to update the subscription to. If
+#' omitted, the subscription will not change plans
+#' @param coupon The code of the coupon to apply to this subscription. A coupon
+#' applied to a subscription will only affect invoices created for that
+#' particular subscription
+#' @param prorate Flag determining whether to prorate switching plans during a
+#' billing cycle
+#' @param proration_date If set, the proration will be calculated as though the
+#' subscription was updated at the given time. This can be used to apply exactly
+#' the same proration that was previewed with upcoming invoice endpoint. It can
+#' also be used to implement custom proration logic, such as prorating by day
+#' instead of by second, by providing the time that you wish to use for
+#' proration calculations.
+#' @param trial_end Unix timestamp representing the end of the trial period the
+#' customer will get before being charged for the first time. If set, trial_end
+#' will override the default trial period of the plan the customer is being
+#' subscribed to
+#' @export
+update_subscription <- function(subscription_id, plan = NULL, coupon = NULL,
+                                prorate = NULL, proration_date = NULL, source = NULL,
+                                application_fee_percent = NULL, metadata = list(),
+                                tax_percent = NULL, trial_end = NULL){
+
+}
+
+#' Cancel a subscription
+#'
+#' Cancels the subscription with the provided ID on Stripe and returns the
+#' \link{stripe_subscription} object representing the canceled subscription.
+#'
+#' @param subscription_id The identifier of the subscription to be canceled.
+#' @param end_of_period If \code{FALSE} then the subscription will be canceled
+#' immediately, if \code{TRUE} then the subscription will be canceled at the end
+#' of the subscription period.
+#' @export
+cancel_subscription <- function(subscription_id, end_of_period = FALSE){
+  sub <- get_subscription(subscription_id)
+  sub$cancel(end_of_period)
+  return(sub)
+}
