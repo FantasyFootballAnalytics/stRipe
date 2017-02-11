@@ -260,7 +260,13 @@ update_subscription <- function(subscription_id, plan = NULL, coupon = NULL,
                                 prorate = NULL, proration_date = NULL, source = NULL,
                                 application_fee_percent = NULL, metadata = list(),
                                 tax_percent = NULL, trial_end = NULL){
+  update_args <- as.list(match.call())[-1]
+  update_args <- update_args[setdiff(names(update_args), "subscription_id")]
 
+  sub <- get_subscription(subscription_id)
+  updateSub <- sub$update
+  sub <- do.call("updateSub", update_args)
+  return(sub)
 }
 
 #' Cancel a subscription
