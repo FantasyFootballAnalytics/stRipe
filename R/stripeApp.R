@@ -1,3 +1,24 @@
+#' stripeApp object
+#'
+#' The \code{stripeApp} object represents the endpoint, version and API key used
+#' for the package. You will need to use the \code{\link{setApiKey}} function to
+#' set the API to the one you want to use.
+#'
+#' @section Object Properties:
+#' \itemize{
+#'  \item \code{endpoint}: The URL of the API endpoint
+#'  \item \code{ver}: The version of the endpoint
+#'  \item \code{apiKey}: The API key to be used for requests
+#' }
+#'
+#' @section Methods:
+#' \itemize{
+#'  \item \code{request_url}: Generates a URL for the specified resource
+#' }
+#' @docType class
+#' @format An R6 Class object
+#' @import httr
+#' @export
 stripeApp <- R6::R6Class(
   public = list(
     endpoint = httr::parse_url("https://api.stripe.com/"),
@@ -14,14 +35,22 @@ stripeApp <- R6::R6Class(
   )
 )
 
+
 #' @export app
 app <- stripeApp$new()
 
-#' @export setApiKey
-setApiKey <- function(key_value = as.character()){
+#' Set API key
+#'
+#' Sets API key to be used for requests to Stripe. You can find this via your
+#' Stripe dashboard
+#'
+#' @param key_value Character string representing the API key to be used
+#' @export
+setApiKey <- function(key_value){
   app$apiKey <- key_value
 }
-#' @export stripe_request
+
+
 stripe_request <- function(request_url, request_body = NULL, request_type = "GET"){
   auth_string <- paste("Bearer", app$apiKey)
   request_func <- switch (request_type,

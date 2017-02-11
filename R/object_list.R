@@ -4,7 +4,7 @@ object_list <- R6::R6Class(
   public = list (
     object = "list", data = list(), has_more = NULL, total_count = NULL,
     url = NULL,
-    initialize = function(data = list(), has_more = NULL,
+    initialize = function(data = list(), has_more = NULL, object = "list",
                           total_count = NULL, url = NULL){
       self$has_more <- has_more
       self$total_count <- total_count
@@ -20,11 +20,27 @@ object_list <- R6::R6Class(
                               "line_item" = "newInvoiceLine",
                               "invoiceitem" = "newInvoiceItem",
                               "invoice" = "newInvoice",
-                              "coupon" = "newCoupon"
+                              "coupon" = "newCoupon",
+                              "discount" = "newDiscount",
+                              "bank_account" = "newBankAccount",
+                              "token" = "newToken",
+                              "customer" = "newCustomer"
+                            )
+                            obj_class = switch(list_object,
+                                               "plan" = stripe_plan,
+                                               "card" = stripe_card,
+                                               "subscription" = stripe_subscription,
+                                               "line_item" = stripe_line_item,
+                                               "invoiceitem" = stripe_inv_item,
+                                               "invoice" = stripe_invoice,
+                                               "coupon" = stripe_coupon,
+                                               "bank_account" = stripe_bank_account,
+                                               "token" = stripe_token,
+                                               "customer" = stripe_customer
                             )
                             object_param <- setdiff(names(list_data), "object")
-
-                            return(do.call(obj_func, list_data))
+                            object_param <- intersect(object_param, names(obj_class$public_fields))
+                            return(do.call(obj_func, list_data[object_param]))
                           }
                           )
     }

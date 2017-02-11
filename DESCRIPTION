@@ -8,17 +8,21 @@ Description: More about what it does (maybe more than one line)
 License: What license is it under?
 LazyData: TRUE
 Imports:
-    R6
+    R6,
+    httr
 RoxygenNote: 5.0.1
 Collate:
+    'bank_account.R'
     'card.R'
+    'card_dictionary.R'
     'coupon.R'
+    'object_list.R'
     'discount.R'
+    'plan.R'
+    'subscription.R'
+    'customer.R'
     'error_content.R'
     'invoice.R'
-    'object_list.R'
-    'plan.R'
     'stRipe.R'
     'stripeApp.R'
-    'subscription.R'
     'token.R'

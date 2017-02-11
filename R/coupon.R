@@ -12,25 +12,30 @@ stripe_coupon <- R6::R6Class(
       init_vars <- as.list(match.call())[-1]
       if(length(init_vars) > 0){
         for(i_var in setdiff(names(init_vars), "metadata")){
-          self[[i_var]] <- init_vars[[i_var]]
+          self[[i_var]] <- eval.parent(init_vars[[i_var]])
         }
         self$metadata <- metadata
       }
     },
 
-    create = function(){
-      create_params <- list(duration = self$duration)
-      optional  <- c("id", "amount_off", "currency", "duration_in_months",
-                     "max_redemptions", "percent_off" , "redeem_by")
+    create = function(id = NULL, amount_off = NULL, created = NULL,
+                      currency = NULL, duration , duration_in_months = NULL,
+                      max_redemptions = NULL, metadata = list(),  percent_off = NULL,
+                      redeem_by = NULL){
+      create_vars <-  as.list(match.call())[-1]
+
+      create_params <- list(duration = duration)
+      optional  <- intersect(names(create_vars),
+                             c("id", "amount_off", "currency", "duration_in_months",
+                               "max_redemptions", "percent_off" , "redeem_by"))
 
       for(opt_var in optional){
-        if(!is.null(self[[opt_var]])){
-          create_params[[opt_var]] <- self[[opt_var]]
-        }
+          create_params[[opt_var]] <- create_vars[[opt_var]]
       }
 
-      if(length(selfmetadata) > 0)
-        create_params$metadata <- self$metadata
+      if(length(metadata) > 0)
+        for(meta_name in names(metadata))
+          create_params[[paste0("metadata[", meta_name, "]")]] <- metadata[[meta_name]]
 
       created_coupon <- stripe_request(private$coupon_url(),
                                        request_body = create_params,
@@ -47,18 +52,20 @@ stripe_coupon <- R6::R6Class(
       }
     },
     update = function(metadata = list()){
-      if(length(metadata) > 0){
+
+      if(length(metadata) >0){
         for(m_name in names(metadata)){
-          self$metadata[[m_name]] <- metadata[[m_name]]
-        }
+          update_param[[paste0("metadata[", m_name, "]")]] <- metadata[[m_name]]
 
         updated_coupon <- stripe_request(private$coupon_url(self$id),
-                                         request_body = list(metatdata = self$metadata),
+                                         request_body = update_param,
                                          request_type = "POST")
+        self$metadata <- metadata
+        }
       }
     },
-    delete = function(){
-      del_response <- stripe_request(private$coupon_url(self$id),
+    delete = function(coupon_id){
+      del_response <- stripe_request(private$coupon_url(coupon_id),
                                      request_type = "DELETE")
     }
   ),

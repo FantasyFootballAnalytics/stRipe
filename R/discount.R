@@ -10,7 +10,7 @@ stripe_discount <- R6::R6Class(
       init_vars <- as.list(match.call())[-1]
       if(length(init_vars) > 0){
         for(i_var in setdiff(names(init_vars), "coupon")){
-          self[[i_var]] <- init_vars[[i_var]]
+          self[[i_var]] <- eval.parent(init_vars[[i_var]])
         }
 
         if(R6::is.R6(coupon) | is.null(coupon))
