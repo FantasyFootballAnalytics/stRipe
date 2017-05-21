@@ -117,4 +117,3 @@ regularly scheduled payment for the invoice. Invoices pertaining to unpaid
 subscriptions, or invoices pertaining to canceled subscriptions, will not be
 retried as a result of updating the customer's credit card information.
 }
-

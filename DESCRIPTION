@@ -10,8 +10,8 @@ LazyData: TRUE
 Imports:
     R6,
     httr
-RoxygenNote: 5.0.1
-Collate:
+RoxygenNote: 6.0.1
+Collate: 
     'bank_account.R'
     'card.R'
     'card_dictionary.R'
@@ -25,4 +25,5 @@ Collate:
     'invoice.R'
     'stRipe.R'
     'stripeApp.R'
+    'subscription_item.R'
     'token.R'

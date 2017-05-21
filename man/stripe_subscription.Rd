@@ -32,5 +32,5 @@ particular plan that was previously created.
  \item \code{cancel}: Cancels the subscription with the provided id at Stripe.
 }
 }
-\keyword{datasets}
 
+\keyword{datasets}

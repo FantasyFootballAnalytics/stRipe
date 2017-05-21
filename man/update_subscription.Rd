@@ -38,4 +38,3 @@ subscribed to}
 Updates the subscription with the provided ID. Enables changing plans,
 applying discounts, prorating, and updating trial end dates.
 }
-

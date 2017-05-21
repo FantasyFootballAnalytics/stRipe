@@ -127,4 +127,3 @@ A \code{\link{stripe_customer}} object representing the created customer.
 \description{
 Create a new customer on Stripe.
 }
-

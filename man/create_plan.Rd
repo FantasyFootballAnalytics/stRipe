@@ -45,4 +45,3 @@ new_plan <- create_plan(id = "testPlan1", name = "Test Plan 1", amount = 999,
                         currency = "usd", interval = "month")
 
 }
-

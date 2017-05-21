@@ -13,4 +13,3 @@ setApiKey(key_value)
 Sets API key to be used for requests to Stripe. You can find this via your
 Stripe dashboard
 }
-

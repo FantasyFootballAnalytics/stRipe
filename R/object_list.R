@@ -24,7 +24,9 @@ object_list <- R6::R6Class(
                               "discount" = "newDiscount",
                               "bank_account" = "newBankAccount",
                               "token" = "newToken",
-                              "customer" = "newCustomer"
+                              "customer" = "newCustomer",
+                              "subscription_item" = "newSubitem",
+                              "list" = "newList"
                             )
                             obj_class = switch(list_object,
                                                "plan" = stripe_plan,
@@ -40,6 +42,7 @@ object_list <- R6::R6Class(
                             )
                             object_param <- setdiff(names(list_data), "object")
                             object_param <- intersect(object_param, names(obj_class$public_fields))
+
                             return(do.call(obj_func, list_data[object_param]))
                           }
                           )

@@ -12,4 +12,3 @@ delete_customer(customer_id)
 \description{
 Delete specified customer from Stripe
 }
-

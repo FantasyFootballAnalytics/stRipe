@@ -11,6 +11,7 @@ stripe_token <- R6::R6Class(
     livemode = FALSE,
     type = NULL,
     used = FALSE,
+    email = NULL,
     initialize = function(..., card = NULL, bank_account = NULL){
       init_vars <- as.list(match.call())[-1]
       if(length(init_vars) > 0){
@@ -92,14 +93,15 @@ stripe_token <- R6::R6Class(
     retrieve = function(token_id){
       token_info <- stripe_request(private$token_url(token_id))
 
+      print(token_info$card)
       for(param in setdiff(names(token_info), c("card", "bank_account")))
         self[[param]] <- token_info[[param]]
 
       if(any(names(token_info) == "card"))
-        self$card <- do.call("newCard", created_token$card)
+        self$card <- do.call("newCard", token_info$card)
 
       if(any(names(token_info) == "bank_account"))
-        self$bank_account <- do.call("newBankAccount", created_token$bank_account)
+        self$bank_account <- do.call("newBankAccount", token_info$bank_account)
     }
 
   ),

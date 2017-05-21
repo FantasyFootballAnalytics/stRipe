@@ -18,4 +18,3 @@ that was removed
 # Remove plan with plan_id testPlan
 delete_plan("testPlan")
 }
-

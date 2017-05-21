@@ -35,6 +35,7 @@ services or levels.
  \item \code{delete}: Deletes the plan with the provided id at Stripe.
 }
 }
+
 \examples{
 # Create Test Plan 1 with a monthly charge of $9.99
 new_plan <- stripe_plan$new()
@@ -52,4 +53,3 @@ delete_plan$delete("testPlan1")
 
 }
 \keyword{datasets}
-

@@ -31,4 +31,3 @@ name, metadata, statement descriptor and trial period.
 # Update the display name of plan with id proPlan to "Pro Plan"
 my_plan <- update_plan("proPlan", name = "Pro Plan")
 }
-

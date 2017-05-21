@@ -16,7 +16,6 @@ stripe_card <- R6::R6Class(
       init_vars <- as.list(match.call())[-1]
 
       var_names <- intersect(names(init_vars), names(self))
-
       if(length(var_names) > 0){
         for(i_var in setdiff(var_names, "metadata")){
           self[[i_var]] <- eval.parent(init_vars[[i_var]])

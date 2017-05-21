@@ -23,5 +23,5 @@ You can use this object to create, delete, and update customers.
  \item \code{delete}: Delete a customer
 }
 }
-\keyword{datasets}
 
+\keyword{datasets}

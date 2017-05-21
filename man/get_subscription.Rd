@@ -13,4 +13,3 @@ get_subscription(id)
 Retrieves subscription with the provided ID and returns the
 \link{stripe_subcription} object representing the requested subscription
 }
-

@@ -31,14 +31,14 @@ stripe_subscription <- R6::R6Class(
     id = NULL,     object = "subscription", application_fee_percent = NULL,
     cancel_at_period_end = FALSE, canceled_at = NULL, created = NULL,
     current_period_end = NULL, current_period_start = NULL, customer = NULL,
-    discount = NULL, ended_at = NULL, livemode = FALSE, metadata = list(),
+    discount = NULL, ended_at = NULL, items = list(), livemode = FALSE, metadata = list(),
     plan = NULL, quantity = NULL, start = NULL, status = NULL, tax_percent = NULL,
     trial_end = NULL, trial_start = NULL,
 
     initialize = function(..., plan = NULL, metadata = list()){
       init_vars <- as.list(match.call())[-1]
       if(length(init_vars) > 0){
-        for(i_var in setdiff(names(init_vars), c("plan", "metadata"))){
+        for(i_var in setdiff(names(init_vars), c("plan", "metadata", "items"))){
           self[[i_var]] <- eval.parent(init_vars[[i_var]])
         }
 
@@ -49,6 +49,11 @@ stripe_subscription <- R6::R6Class(
           self$plan <- plan
         else
           self$plan <- do.call("newPlan", plan)
+
+
+        if(any(names(init_vars) == "items"))
+          if(length(init_vars$items) > 0)
+            self$items <- do.call("newList", init_vars$items)
       }
       invisible(self)
     },
@@ -59,7 +64,7 @@ stripe_subscription <- R6::R6Class(
                       address_line1 = NULL, address_line2 = NULL,
                       address_state = NULL, address_zip = NULL, currency = NULL,
                       default_for_currency = NULL, card_metadata = list(),
-                      coupon = NULL,
+                      coupon = NULL, items = list(),
                       application_fee_percent = NULL, quantity = NULL,
                       tax_percent = NULL, trial_end = NULL, trial_period_days = NULL){
 
@@ -67,11 +72,28 @@ stripe_subscription <- R6::R6Class(
 
       create_param <- list(customer = customer_id, plan = plan_id)
 
-      if(!is.null(source))
-        create_param$source <- source
+      card_data <- c("exp_month", "exp_month", "exp_year",
+                     "number", "cvc", "name", "address_city",
+                     "address_country", "address_line1",
+                     "address_line2", "address_state",
+                     "address_zip", "currency",
+                     "default_for_currency", "card_metadata")
 
-      if(!is.null(coupon_code))
-        create_param$coupon <- coupon_code
+      card_param <- list(object = "card")
+      for(param in intersect(names(func_param), card_data)){
+        if(!is.null(func_param[[param]]))
+          card_param[param] <- func_param[[param]]
+      }
+
+
+      if(length(card_param) > 1){
+        card_source <- get_card_source(card_param)
+        for(param in  names(card_source))
+          create_param[param] <- card_source[param]
+      }
+
+      if(!is.null(coupon))
+        create_param$coupon <- coupon
 
       for(sub_var in c("application_fee_percent", "quantity",
                        "tax_percent", "trial_end", "trial_period_days")){
@@ -82,24 +104,31 @@ stripe_subscription <- R6::R6Class(
       new_sub <- stripe_request(private$subscription_url(),
                                 request_body = create_param,
                                 request_type = "POST")
-      for(new_var in setdiff(names(new_sub), "plan")){
+      for(new_var in setdiff(names(new_sub), c("plan", "items"))){
         self[[new_var]] <- new_sub[[new_var]]
       }
       self$plan <- do.call("newPlan", new_sub$plan)
+      self$items <- do.call("newList", new_sub$items)
     },
 
     # Retrieve method to get the subscription information based on the id
     # property. Any property changes that have not been sent to Stripe via the
     # update method will be overwritten
     retrieve = function(sub_id){
-      sub <- stripe_request(private$subscription_url(sub_id))
-      sub_vars <- setdiff(names(sub), "plan")
+      requested_sub <- stripe_request(private$subscription_url(sub_id))
+      sub_vars <- setdiff(names(requested_sub), c("plan", "items"))
+
       for(sub_var in sub_vars){
-        self[[sub_var]] <- sub[[sub_var]]
+        self[[sub_var]] <- requested_sub[[sub_var]]
       }
-      self$plan <- do.call("newPlan", sub$plan)
+      self$plan <- do.call("newPlan", requested_sub$plan)
+
+      if(any(names(requested_sub) == "items"))
+        self$items <- do.call("newList", requested_sub$items)
+
+      invisible(self)
     },
-    update = function(plan = NULL, coupon = NULL,
+    update = function(plan = NULL, coupon = NULL, items = list(),
                       prorate = NULL, proration_date = NULL, source = NULL,
                       application_fee_percent = NULL, metadata = list(),
                       tax_percent = NULL, trial_end = NULL){
@@ -121,12 +150,16 @@ stripe_subscription <- R6::R6Class(
       }
       if(any(names(update_params) == "plan"))
         self$plan <- do.call("newPlan", updated_sub$plan)
-    },
-    cancel = function(end_of_period = FALSE){
-      cancel_sub <-stripe_request(subscription_url(self$id),
-                                  request_body = list(at_period_end = end_of_period),
-                                  request_type = "DELETE")
 
+      invisible(self)
+    },
+
+    cancelSub = function(end_of_period = FALSE){
+      print("HERE")
+      cancel_sub <-stripe_request(private$subscription_url(self$id),
+                                  request_body = list(at_period_end = tolower(as.character(end_of_period))),
+                                  request_type = "DELETE")
+      print(cancel_sub)
       self$status <- cancel_sub$status
       self$cancel_at_period_end <- cancel_sub$cancel_at_period_end
     }
@@ -280,7 +313,7 @@ update_subscription <- function(subscription_id, plan = NULL, coupon = NULL,
 #' of the subscription period.
 #' @export
 cancel_subscription <- function(subscription_id, end_of_period = FALSE){
-  sub <- get_subscription(subscription_id)
-  sub$cancel(end_of_period)
-  return(sub)
+  subscription <- get_subscription(subscription_id)
+  subscription$cancelSub(end_of_period)
+  return(subscription)
 }

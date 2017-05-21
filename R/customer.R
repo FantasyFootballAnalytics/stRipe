@@ -477,3 +477,23 @@ get_customer <- function(id){
 #' @param id ID of customer to be deleted
 #' @export
 delete_customer <- stripe_customer$new()$delete
+
+#' @export
+all_customers <- function(){
+  cust_list <- stripe_request("https://api.stripe.com/v1/customers")
+  num_cust <- length(cust_list$data)
+  last_cust <- cust_list$data[[num_cust]]$id
+
+  customer_list <- cust_list$data
+
+  while(cust_list$has_more){
+    cust_list <- stripe_request(paste0("https://api.stripe.com/v1/customers?starting_after=", last_cust))
+    cust_list <- do.call("newList", cust_list)
+    num_cust <- length(cust_list$data)
+    last_cust <- cust_list$data[[num_cust]]$id
+
+    customer_list[(length(customer_list)+1):(length(customer_list)+1+num_cust)] <- cust_list$data
+  }
+
+  return(customer_list)
+}

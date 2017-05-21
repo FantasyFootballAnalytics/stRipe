@@ -2,7 +2,7 @@
 #' @export
 get_card_source <- function(params = list()){
   param_names <- intersect(names(params),
-                           c("exp_month", "exp_month", "exp_year",
+                           c("exp_month", "exp_month", "exp_year", "object",
                              "number", "cvc", "name", "address_city",
                              "address_country", "address_line1",
                              "address_line2", "address_state",

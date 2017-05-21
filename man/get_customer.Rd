@@ -15,4 +15,3 @@ A \code{\link{stripe_customer}} object representing the customer
 \description{
 Retrieve information on specified customer from Stripe.
 }
-

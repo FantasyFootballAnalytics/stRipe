@@ -61,7 +61,6 @@ stripe_request <- function(request_url, request_body = NULL, request_type = "GET
                           "PATCH" = httr::PATCH
   )
 
-
   request_url <- httr::modify_url(request_url, query =  request_body)
 
 

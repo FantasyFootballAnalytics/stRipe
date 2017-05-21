@@ -89,4 +89,3 @@ then the customer will either need to have an defined payment source, or a
 payment source (card token or card infomration) will need to be passed in the
 function.
 }
-

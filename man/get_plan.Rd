@@ -17,4 +17,3 @@ object representing the plan.
 # Retrieve plan with id testPlan
 plan <- get_plan("testPlan")
 }
-

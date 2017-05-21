@@ -28,5 +28,5 @@ set the API to the one you want to use.
  \item \code{request_url}: Generates a URL for the specified resource
 }
 }
-\keyword{datasets}
 
+\keyword{datasets}

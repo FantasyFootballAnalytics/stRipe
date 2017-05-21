@@ -17,4 +17,3 @@ of the subscription period.}
 Cancels the subscription with the provided ID on Stripe and returns the
 \link{stripe_subscription} object representing the canceled subscription.
 }
-
