@@ -171,6 +171,8 @@ stripe_customer <- R6::R6Class(
 
       if(length(customer_info$subscriptions) > 0)
         self$subscriptions <- do.call("newList", customer_info$subscriptions)
+
+      invisible(self)
     },
 
     # Update Method

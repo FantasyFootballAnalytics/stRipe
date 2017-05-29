@@ -155,11 +155,10 @@ stripe_subscription <- R6::R6Class(
     },
 
     cancelSub = function(end_of_period = FALSE){
-      print("HERE")
+
       cancel_sub <-stripe_request(private$subscription_url(self$id),
                                   request_body = list(at_period_end = tolower(as.character(end_of_period))),
                                   request_type = "DELETE")
-      print(cancel_sub)
       self$status <- cancel_sub$status
       self$cancel_at_period_end <- cancel_sub$cancel_at_period_end
     }
@@ -248,7 +247,11 @@ create_subscription <- function(plan_id, customer_id,  card_token = NULL,
                                 tax_percent = NULL, trial_end = NULL,
                                 trial_period_days = NULL){
   create_args <- as.list(match.call())[-1]
+  arg_names <- names(create_args)
+  create_args <- lapply(create_args, eval.parent, n=2)
+  names(create_args) <- arg_names
   add_sub <- stripe_subscription$new()$create
+
   new_sub <- do.call("add_sub", create_args)
   return(new_sub)
 }
