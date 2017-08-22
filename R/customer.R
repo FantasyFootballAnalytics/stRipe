@@ -68,7 +68,7 @@ stripe_customer <- R6::R6Class(
                       name = NULL, address_city = NULL, address_country = NULL,
                       address_line1 = NULL, address_line2 = NULL,
                       address_state = NULL, address_zip = NULL, currency = NULL,
-                      default_for_currency = NULL, card_metadata = list()){
+                      default_for_currency = NULL, card_metadata = list(), idempotency_key = NULL){
       func_param <- as.list(match.call())[-1]
       create_param <- list()
       cust_vars <- c("account_balance", "business_vat_id", "description", "email",
@@ -119,6 +119,11 @@ stripe_customer <- R6::R6Class(
 
       if(!is.null(coupon)){
         create_param$coupon <- coupon
+      }
+
+      
+      if(!is.null(idempotency_key)){
+        create_param$idempotency_key <- idempotency_key
       }
 
       if(!is.null(card_token)){
