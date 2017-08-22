@@ -51,7 +51,8 @@ setApiKey <- function(key_value){
 }
 
 
-stripe_request <- function(request_url, request_body = NULL, request_type = "GET"){
+stripe_request <- function(request_url, request_body = NULL, request_type = "GET", 
+                          idempotency_key = NULL){
   auth_string <- paste("Bearer", app$apiKey)
   request_func <- switch (request_type,
                           "GET" = httr::GET,
@@ -60,12 +61,17 @@ stripe_request <- function(request_url, request_body = NULL, request_type = "GET
                           "DELETE" = httr::DELETE,
                           "PATCH" = httr::PATCH
   )
+  
+  header_list <- list(Authorization = auth_string, "Content-Type" = "application/x-www-form-urlencoded")
+  
+  if(!is.null(idempotency_key))
+    header_list$`Idempotency-Key` <- idempotency_key
 
+  request_header <- do.call(httr::add_headers, header_list)
   request_url <- httr::modify_url(request_url, query =  request_body)
 
 
-  request_response <- request_func(request_url,
-                                   httr::add_headers(Authorization = auth_string, "Content-Type" = "application/x-www-form-urlencoded"))
+  request_response <- request_func(request_url, request_header)
   request_status <- httr::status_code(request_response)
   request_content <- httr::content(request_response)
   if(request_status == 200){
