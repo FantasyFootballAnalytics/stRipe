@@ -120,12 +120,7 @@ stripe_customer <- R6::R6Class(
       if(!is.null(coupon)){
         create_param$coupon <- coupon
       }
-
       
-      if(!is.null(idempotency_key)){
-        create_param$idempotency_key <- idempotency_key
-      }
-
       if(!is.null(card_token)){
         create_param$source <- card_token
       } else {
@@ -141,7 +136,8 @@ stripe_customer <- R6::R6Class(
 
         new_customer <- stripe_request(private$customer_url(),
                                        request_body = create_param,
-                                       request_type = "POST" )
+                                       request_type = "POST" ,
+                                      idempotency_key)
 
         new_cust_vars <- names(new_customer)
 
