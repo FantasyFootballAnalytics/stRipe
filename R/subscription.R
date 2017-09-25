@@ -28,7 +28,7 @@ stripe_subscription <- R6::R6Class(
   "subscription",
   public = list(
     # Object Properties
-    id = NULL,     object = "subscription", application_fee_percent = NULL,
+    id = NULL,     object = "subscription", billing = NULL, application_fee_percent = NULL,
     cancel_at_period_end = FALSE, canceled_at = NULL, created = NULL,
     current_period_end = NULL, current_period_start = NULL, customer = NULL,
     discount = NULL, ended_at = NULL, items = list(), livemode = FALSE, metadata = list(),
