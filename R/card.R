@@ -8,8 +8,9 @@ stripe_card <- R6::R6Class(
     address_line1 = NULL, address_line1_check = NULL, address_line2 = NULL,
     address_state = NULL, address_zip = NULL, address_zip_check = NULL,
     brand = NULL, country = NULL, customer = NULL, cvc_check = NULL,
-    dynamic_last4 = NULL, exp_month = NULL, exp_year = NULL, funding = NULL,
-    last4 = NULL, metadata = list(), name = NULL, tokenization_method = NULL,
+    dynamic_last4 = NULL, exp_month = NULL, exp_year = NULL, fingerprint = NULL,
+    funding = NULL, last4 = NULL, metadata = list(), name = NULL,
+    tokenization_method = NULL,
 
     # Initialize function
     initialize = function(..., metadata = list()){
@@ -83,7 +84,7 @@ stripe_card <- R6::R6Class(
       if(length(func_param) == 0)
         return()
 
-      update_param <- list(id = self$id)
+      update_param <- list()
       for(param_name in setdiff(names(func_param), "metadata"))
         if(!is.null(eval.parent(func_param[[param_name]])))
           update_param[param_name] <- eval.parent(func_param[[param_name]])
@@ -93,10 +94,10 @@ stripe_card <- R6::R6Class(
           update_param[[paste0("metadata[", meta_name, "]")]] <- metadata[[meta_name]]
       }
 
-      udpated_card <- stripe_request(private$card_url(self$id), request_body = update_param,
+      updated_card <- stripe_request(private$card_url(self$id), request_body = update_param,
                      request_type = "POST")
       for(param_name in names(func_param))
-        self[[param_name]] <- update_card[[param_name]]
+        self[[param_name]] <- updated_card[[param_name]]
 
     },
 

@@ -120,7 +120,7 @@ stripe_customer <- R6::R6Class(
       if(!is.null(coupon)){
         create_param$coupon <- coupon
       }
-      
+
       if(!is.null(card_token)){
         create_param$source <- card_token
       } else {
@@ -182,9 +182,9 @@ stripe_customer <- R6::R6Class(
                       email = NULL, ship_name = NULL, ship_city = NULL,
                       ship_country = NULL, ship_line1 = NULL, ship_line2 = NULL,
                       ship_state = NULL, ship_zip = NULL, ship_phone = NULL,
-                      card_token = NULL, card_exp_month = NULL,
-                      card_exp_year = NULL, card_number = NULL, card_cvc = NULL,
-                      card_holder = NULL, address_city = NULL, address_country = NULL,
+                      token = NULL, exp_month = NULL,
+                      exp_year = NULL, number = NULL, cvc = NULL,
+                      name = NULL, address_city = NULL, address_country = NULL,
                       address_line1 = NULL, address_line2 = NULL,
                       address_state = NULL, address_zip = NULL, currency = NULL,
                       default_for_currency = NULL, card_metadata = list()){
@@ -199,6 +199,7 @@ stripe_customer <- R6::R6Class(
                      "ship_line2", "ship_state", "ship_zip", "ship_phone")
 
       source_dict <- get_card_source(func_param)
+
 
       if(!is.null(source_dict)){
         for(src_name in names(source_dict))

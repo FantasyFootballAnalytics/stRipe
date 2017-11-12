@@ -14,7 +14,7 @@ get_card_source <- function(params = list()){
   card_param <- params[param_names]
   names(card_param)[which(names(card_param) == "card_metadata")] <- "metadata"
 
-  card_source <- list()
+  card_source <- list("source[object]" = "card")
   for(param_name in setdiff(names(card_param), "metadata")){
     if(!is.null(eval.parent(card_param[[param_name]], n = 2)))
       card_source[[paste0("source[", param_name, "]")]] <- eval.parent(card_param[[param_name]], n = 2)
