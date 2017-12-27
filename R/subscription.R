@@ -33,7 +33,7 @@ stripe_subscription <- R6::R6Class(
     current_period_end = NULL, current_period_start = NULL, customer = NULL,
     discount = NULL, ended_at = NULL, items = list(), livemode = FALSE, metadata = list(),
     plan = NULL, quantity = NULL, start = NULL, status = NULL, tax_percent = NULL,
-    trial_end = NULL, trial_start = NULL,
+    trial_end = NULL, trial_start = NULL, days_until_due = NULL,
 
     initialize = function(..., plan = NULL, metadata = list()){
       init_vars <- as.list(match.call())[-1]
