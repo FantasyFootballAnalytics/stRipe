@@ -22,7 +22,7 @@ stripe_customer <- R6::R6Class(
   public = list(
     id = NULL, object = "customer",
     account_balance = NULL, business_vat_id = NULL, created = NULL, currency = NULL,
-    default_source = NULL, delinquent = NULL, description = NULL, discount = NULL,
+    invoice_prefix = NULL, default_source = NULL, delinquent = NULL, description = NULL, discount = NULL,
     email = NULL, livemode = NULL, metadata = list(), shipping = NULL, sources = NULL,
     subscriptions = NULL,
 
