@@ -8,3 +8,6 @@ any credit card information on your sever. Stripe handles all of this for you.
 
 To make use of the package it is required that you have an account with Stripe and 
 use your API keys to execute code.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTcxODcyOTkxNF19
+-->
