@@ -49,7 +49,7 @@ stripe_plan <- R6::R6Class(
     # Object properties
     id = NULL, object = "plan", amount = NULL, created = NULL, currency = NULL,
     interval = NULL, interval_count = NULL, livemode = NULL, metadata = list(),
-    name = NULL, statement_descriptor = NULL, trial_period_days = NULL,
+    name = NULL, nickname = NULL, statement_descriptor = NULL, trial_period_days = NULL,
 
     # Initialize method
     initialize = function(..., metadata = list()){
@@ -64,14 +64,14 @@ stripe_plan <- R6::R6Class(
     },
 
     # Create method that will create the plan at Stripe
-    create = function(id, amount, currency, interval, name,
+    create = function(id, amount, currency, interval, nickname,
                       interval_count = NULL, metadata = list(),
                       statement_descriptor = NULL, trial_period_days = NULL){
       create_params <- list(id = id,
                             amount = amount,
                             currency = currency,
                             interval = interval,
-                            name = name)
+                            nickname = nickname)
       if(!is.null(interval_count))
         create_params$interval_count <- interval_count
 
@@ -106,7 +106,7 @@ stripe_plan <- R6::R6Class(
     },
 
     # Update method to update plan information at Stripe
-    update = function(metadata = NULL, name = NULL,
+    update = function(metadata = NULL, nickname = NULL,
                       statement_descriptor = NULL,
                       trial_period_days = NULL){
       func_param <- as.list(match.call())[-1]
