@@ -30,6 +30,7 @@ stripe_subscription <- R6::R6Class(
     # Object Properties
     id = NULL,     object = "subscription", billing = NULL, application_fee_percent = NULL,
     cancel_at_period_end = FALSE, canceled_at = NULL, created = NULL,
+    billing_cycle_anchor = NULL,
     current_period_end = NULL, current_period_start = NULL, customer = NULL,
     discount = NULL, ended_at = NULL, items = list(), livemode = FALSE, metadata = list(),
     plan = NULL, quantity = NULL, start = NULL, status = NULL, tax_percent = NULL,
