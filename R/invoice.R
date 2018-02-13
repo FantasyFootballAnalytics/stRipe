@@ -1,3 +1,4 @@
+#' Stripe Line Item
 stripe_line_item <- R6::R6Class(
   "line_item",
   public = list(
