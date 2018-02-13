@@ -49,7 +49,7 @@ stripe_plan <- R6::R6Class(
     # Object properties
     id = NULL, object = "plan", amount = NULL, created = NULL, currency = NULL,
     interval = NULL, interval_count = NULL, livemode = NULL, metadata = list(),
-    name = NULL, nickname = NULL, statement_descriptor = NULL, trial_period_days = NULL,
+    name = NULL, nickname = NULL, product = NULL, trial_period_days = NULL,
 
     # Initialize method
     initialize = function(..., metadata = list()){
@@ -66,7 +66,7 @@ stripe_plan <- R6::R6Class(
     # Create method that will create the plan at Stripe
     create = function(id, amount, currency, interval, nickname,
                       interval_count = NULL, metadata = list(),
-                      statement_descriptor = NULL, trial_period_days = NULL){
+                      product = NULL, trial_period_days = NULL){
       create_params <- list(id = id,
                             amount = amount,
                             currency = currency,
@@ -79,7 +79,7 @@ stripe_plan <- R6::R6Class(
         create_params$metadata <- self$metadata
 
       if(!is.null(statement_descriptor))
-        create_params$statement_descriptor <- statement_descriptor
+        create_params$product <- product
 
       if(!is.null(trial_period_days))
         create_params$trial_period_days <- trial_period_days
@@ -107,7 +107,7 @@ stripe_plan <- R6::R6Class(
 
     # Update method to update plan information at Stripe
     update = function(metadata = NULL, nickname = NULL,
-                      statement_descriptor = NULL,
+                      product = NULL,
                       trial_period_days = NULL){
       func_param <- as.list(match.call())[-1]
 
@@ -182,9 +182,9 @@ newPlan <- function(...){stripe_plan$new(...)}
 #'                         currency = "usd", interval = "month")
 #'
 #' @export
-create_plan <- function(id, amount, currency, interval, name,
+create_plan <- function(id, amount, currency, interval, nickname,
                         interval_count = NULL, metadata = list(),
-                        statement_descriptor = NULL, trial_period_days = NULL){
+                        product = NULL, trial_period_days = NULL){
   create_args <- as.list(match.call())[-1]
   add_plan <- stripe_plan$new()$create
   new_plan <- do.call("add_plan", create_args)
@@ -211,8 +211,8 @@ create_plan <- function(id, amount, currency, interval, name,
 #' # Update the display name of plan with id proPlan to "Pro Plan"
 #' my_plan <- update_plan("proPlan", name = "Pro Plan")
 #' @export
-update_plan <- function(id, metadata = NULL, name = NULL,
-                        statement_descriptor = NULL, trial_period_days = NULL){
+update_plan <- function(id, metadata = NULL, nickname = NULL,
+                        product = NULL, trial_period_days = NULL){
   update_args <- as.list(match.call())[-1]
   update_args <- update_args[setdiff(names(update_args), "id")]
 
