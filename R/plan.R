@@ -50,7 +50,8 @@ stripe_plan <- R6::R6Class(
     id = NULL, object = "plan", amount = NULL, created = NULL, currency = NULL,
     interval = NULL, interval_count = NULL, livemode = NULL, metadata = list(),
     name = NULL, nickname = NULL, product = NULL, trial_period_days = NULL,
-    statement_descriptor = NULL,
+    statement_descriptor = NULL, tiers = NULL, tiers_mode = NULL,
+    transform_usage = NULL, usage_type = NULL, billing_scheme = NULL,
 
     # Initialize method
     initialize = function(..., metadata = list()){
