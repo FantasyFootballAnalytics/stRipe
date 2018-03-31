@@ -18,7 +18,7 @@
 #' @include card.R subscription.R discount.R object_list.R
 #' @export
 stripe_customer <- R6::R6Class(
-  "customer",
+  "customer", lock_objects = FALSE,
   public = list(
     id = NULL, object = "customer",
     account_balance = NULL, business_vat_id = NULL, created = NULL, currency = NULL,

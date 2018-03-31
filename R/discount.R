@@ -1,7 +1,7 @@
 #' @include coupon.R
 #' @export stripe_discount
 stripe_discount <- R6::R6Class(
-  "discount",
+  "discount", lock_objects = FALSE,
   public = list(
     object = "discount", coupon = NULL, customer = NULL, end = NULL,
     start = NULL, subscription = NULL,

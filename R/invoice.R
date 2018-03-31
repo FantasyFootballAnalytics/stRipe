@@ -1,6 +1,6 @@
 #' Stripe Line Item
 stripe_line_item <- R6::R6Class(
-  "line_item",
+  "line_item", lock_objects = FALSE,
   public = list(
     id = NULL,
     object = "line_item",

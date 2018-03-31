@@ -1,6 +1,6 @@
 #' @export object_list
 object_list <- R6::R6Class(
-  "list",
+  "list", lock_objects = FALSE,
   public = list (
     object = "list", data = list(), has_more = NULL, total_count = NULL,
     url = NULL,

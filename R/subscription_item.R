@@ -1,7 +1,7 @@
 #' @include plan.R
 #' @export
 stripe_sub_item <- R6::R6Class(
-  "subscription_item",
+  "subscription_item", lock_objects = FALSE,
   public = list(
     id = NULL,
     object = "subsription_item",

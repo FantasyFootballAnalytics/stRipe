@@ -22,7 +22,7 @@
 #' @format An R6 Class object
 #' @export
 stripe_coupon <- R6::R6Class(
-  "coupon",
+  "coupon", lock_objects = FALSE,
   public = list(
     id  = NULL, object = "coupon", amount_off = NULL, created = NULL,
     currency= NULL, duration = NULL, duration_in_months = NULL, livemode = NULL,

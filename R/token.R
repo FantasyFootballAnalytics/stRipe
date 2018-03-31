@@ -1,6 +1,6 @@
 #' @export stripe_token
 stripe_token <- R6::R6Class(
-  "token",
+  "token", lock_objects = FALSE,
   public = list(
     id = NULL,
     object = "token",

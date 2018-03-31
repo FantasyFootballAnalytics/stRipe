@@ -1,6 +1,6 @@
 #' @export stripe_bank_account
 stripe_bank_account <- R6::R6Class(
-  "bank_account",
+  "bank_account", lock_objects = FALSE,
   public = list(
     # Object properties
     id= NULL, object = "bank_account", account = NULL, account_holder_name = NULL,

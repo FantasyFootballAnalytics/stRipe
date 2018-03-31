@@ -1,7 +1,7 @@
 
 #' @export stripe_card
 stripe_card <- R6::R6Class(
-  "card",
+  "card", lock_objects = FALSE,
   public = list(
     # Data elements
     id = NULL, object = "card", address_city = NULL, address_country = NULL,

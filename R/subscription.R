@@ -25,7 +25,7 @@
 #' @include plan.R
 #' @export
 stripe_subscription <- R6::R6Class(
-  "subscription",
+  "subscription", lock_objects = FALSE,
   public = list(
     # Object Properties
     id = NULL,     object = "subscription", billing = NULL, application_fee_percent = NULL,

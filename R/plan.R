@@ -44,7 +44,7 @@
 #' @format An R6 Class object
 #' @export
 stripe_plan <- R6::R6Class(
-  "plan",
+  "plan", lock_objects = FALSE,
   public = list(
     # Object properties
     id = NULL, object = "plan", amount = NULL, created = NULL, currency = NULL,
