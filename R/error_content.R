@@ -32,7 +32,8 @@ stripe_error <- function(error_content, http_code){
                          "incorrect_zip" =  "The card's zip code failed validation.",
                          "card_declined" = "The card was declined.",
                          "missing" = "There is no card on a customer that is being charged.",
-                         "processing_error" = "An error occurred while processing the card.")
+                         "processing_error" = "An error occurred while processing the card.",
+                         error_content$code)
 
   if(any(names(error_content) == "message"))
     error_message <- error_content$message
