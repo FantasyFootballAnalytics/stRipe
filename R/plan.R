@@ -173,9 +173,9 @@ newPlan <- function(...){stripe_plan$new(...)}
 #' \code{interval = month} and \code{interval_count = 3} bills every 3 months
 #' @param metadata A set of key/value pairs that you can attach to a plan object.
 #' It can be useful for storing additional information about the plan in a
-#' structured format. This will be unset if you specicy \code{NULL}.
+#' structured format. This will be unset if you specify \code{NULL}.
 #' @param statement_descriptor An arbitrary string to be displayed on your
-#' customer’s credit card statement. This may be up to 22 characters
+#' customer's credit card statement. This may be up to 22 characters
 #' @param trial_period_days Number of trial period days granted when subscribing
 #' a customer to this plan. \code{NULL} if the plan has no trial period
 #' @examples

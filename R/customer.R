@@ -158,6 +158,7 @@ stripe_customer <- R6::R6Class(
 
     # Retrieve Method
     retrieve = function(customer_id){
+
       customer_info <- stripe_request(private$customer_url(customer_id))
 
       cust_vars <- names(customer_info)
@@ -279,15 +280,15 @@ newCustomer <- function(...)stripe_customer$new(...)
 #'
 #' @param account_balance An integer amount in cents that is the starting account
 #' balance for your customer. A negative amount represents a credit that will be
-#' used before attempting any charges to the customer’s card; a positive amount
+#' used before attempting any charges to the customer's card; a positive amount
 #' will be added to the next invoice.
-#' @param business_vat_id The customer’s VAT identification number. If you are
+#' @param business_vat_id The customer's VAT identification number. If you are
 #' using Relay, this field gets passed to tax provider you are using for your
 #' orders. This can be unset by updating the value to \code{NULL}.
 #' @param description An arbitrary string that you can attach to a customer
 #' object. It is displayed alongside the customer in the dashboard. This can be
 #' unset by updating the value to \code{NULL}.
-#' @param email Customer’s email address. It’s displayed alongside the customer
+#' @param email Customer's email address. It's displayed alongside the customer
 #' in your dashboard and can be useful for searching and tracking. This can be
 #' unset by updating the value to \code{NULL}.
 #' @param plan The identifier of the plan to subscribe the customer to.
@@ -295,7 +296,7 @@ newCustomer <- function(...)stripe_customer$new(...)
 #' that the customer is currently subscribed to.
 #' If you subscribe a customer to a plan without a free trial, the customer must
 #' have a valid card as well.
-#' @param quantity The quantity you’d like to apply to the subscription you’re
+#' @param quantity The quantity you'd like to apply to the subscription you're
 #' creating (if you pass in a plan). For example, if your plan is 10 cents/user/month,
 #' and your customer has 5 users, you could pass 5 as the quantity to have the
 #' customer charged 50 cents (5 x 10 cents) monthly. Defaults to 1 if not set.
@@ -308,7 +309,7 @@ newCustomer <- function(...)stripe_customer$new(...)
 #' @param trial_end Unix timestamp representing the end of the trial period the
 #' customer will get before being charged. If set, trial_end will override the
 #' default trial period of the plan the customer is being subscribed to.
-#' The special value now can be provided to end the customer’s trial immediately.
+#' The special value now can be provided to end the customer's trial immediately.
 #' Only applies when the plan parameter is also provided.
 #' @param coupon If you provide a coupon code, the customer will have a discount
 #' applied on all recurring charges. Charges you create through the API will not
@@ -387,15 +388,15 @@ create_customer <- function(account_balance = NULL, business_vat_id = NULL,
 #' @param id ID of customer to be updated
 #' @param account_balance An integer amount in cents that is the starting account
 #' balance for your customer. A negative amount represents a credit that will be
-#' used before attempting any charges to the customer’s card; a positive amount
+#' used before attempting any charges to the customer's card; a positive amount
 #' will be added to the next invoice.
-#' @param business_vat_id The customer’s VAT identification number. If you are
+#' @param business_vat_id The customer's VAT identification number. If you are
 #' using Relay, this field gets passed to tax provider you are using for your
 #' orders. This can be unset by updating the value to \code{NULL}.
 #' @param description An arbitrary string that you can attach to a customer
 #' object. It is displayed alongside the customer in the dashboard. This can be
 #' unset by updating the value to \code{NULL}.
-#' @param email Customer’s email address. It’s displayed alongside the customer
+#' @param email Customer's email address. It's displayed alongside the customer
 #' in your dashboard and can be useful for searching and tracking. This can be
 #' unset by updating the value to \code{NULL}.
 #' @param coupon If you provide a coupon code, the customer will have a discount
@@ -404,7 +405,7 @@ create_customer <- function(account_balance = NULL, business_vat_id = NULL,
 #' @param metadata A set of key/value pairs that you can attach to a customer
 #' object. It can be useful for storing additional information about the customer
 #' in a structured format. This can be unset by updating the value to \code{NULL}.
-#' @param default_source ID of source to make the customer’s new default for
+#' @param default_source ID of source to make the customer's new default for
 #' invoice payments
 #' @param ship_name Name on shipping address
 #' @param ship_city City of shipping address
