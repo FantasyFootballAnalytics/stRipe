@@ -26,7 +26,8 @@ object_list <- R6::R6Class(
                               "token" = "newToken",
                               "customer" = "newCustomer",
                               "subscription_item" = "newSubitem",
-                              "list" = "newList"
+                              "list" = "newList",
+                              "source" = "newCard"
                             )
                             obj_class = switch(list_object,
                                                "plan" = stripe_plan,
