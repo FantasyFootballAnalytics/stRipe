@@ -4,9 +4,8 @@
 \name{stripe_subscription}
 \alias{stripe_subscription}
 \title{Subscription object}
-\format{An R6 Class object}
-\usage{
-stripe_subscription
+\format{
+An R6 Class object
 }
 \description{
 The \code{stripe_subscription} object represents the data and methods needed
@@ -33,4 +32,113 @@ particular plan that was previously created.
 }
 }
 
-\keyword{datasets}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{stripe_subscription$new()}}
+\item \href{#method-create}{\code{stripe_subscription$create()}}
+\item \href{#method-retrieve}{\code{stripe_subscription$retrieve()}}
+\item \href{#method-update}{\code{stripe_subscription$update()}}
+\item \href{#method-cancelSub}{\code{stripe_subscription$cancelSub()}}
+\item \href{#method-clone}{\code{stripe_subscription$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_subscription$new(..., plan = NULL, metadata = list())}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-create"></a>}}
+\if{latex}{\out{\hypertarget{method-create}{}}}
+\subsection{Method \code{create()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_subscription$create(
+  plan_id,
+  customer_id,
+  card_token = NULL,
+  exp_month = NULL,
+  exp_year = NULL,
+  number = NULL,
+  cvc = NULL,
+  name = NULL,
+  address_city = NULL,
+  address_country = NULL,
+  address_line1 = NULL,
+  address_line2 = NULL,
+  address_state = NULL,
+  address_zip = NULL,
+  currency = NULL,
+  default_for_currency = NULL,
+  card_metadata = list(),
+  coupon = NULL,
+  items = list(),
+  application_fee_percent = NULL,
+  quantity = NULL,
+  tax_percent = NULL,
+  trial_end = NULL,
+  trial_period_days = NULL
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-retrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-retrieve}{}}}
+\subsection{Method \code{retrieve()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_subscription$retrieve(sub_id)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-update"></a>}}
+\if{latex}{\out{\hypertarget{method-update}{}}}
+\subsection{Method \code{update()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_subscription$update(
+  plan = NULL,
+  coupon = NULL,
+  items = list(),
+  prorate = NULL,
+  proration_date = NULL,
+  source = NULL,
+  application_fee_percent = NULL,
+  metadata = list(),
+  tax_percent = NULL,
+  trial_end = NULL
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-cancelSub"></a>}}
+\if{latex}{\out{\hypertarget{method-cancelSub}{}}}
+\subsection{Method \code{cancelSub()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_subscription$cancelSub(end_of_period = FALSE)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_subscription$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

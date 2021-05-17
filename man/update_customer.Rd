@@ -4,26 +4,49 @@
 \alias{update_customer}
 \title{Update a customer}
 \usage{
-update_customer(id, account_balance = NULL, business_vat_id = NULL,
-  metadata = list(), default_source = NULL, coupon = NULL,
-  description = NULL, email = NULL, ship_name = NULL, ship_city = NULL,
-  ship_country = NULL, ship_line1 = NULL, ship_line2 = NULL,
-  ship_state = NULL, ship_zip = NULL, ship_phone = NULL,
-  card_token = NULL, card_exp_month = NULL, card_exp_year = NULL,
-  card_number = NULL, card_cvc = NULL, card_holder = NULL,
-  address_city = NULL, address_country = NULL, address_line1 = NULL,
-  address_line2 = NULL, address_state = NULL, address_zip = NULL,
-  currency = NULL, default_for_currency = NULL, card_metadata = NULL)
+update_customer(
+  id,
+  account_balance = NULL,
+  business_vat_id = NULL,
+  metadata = list(),
+  default_source = NULL,
+  coupon = NULL,
+  description = NULL,
+  email = NULL,
+  ship_name = NULL,
+  ship_city = NULL,
+  ship_country = NULL,
+  ship_line1 = NULL,
+  ship_line2 = NULL,
+  ship_state = NULL,
+  ship_zip = NULL,
+  ship_phone = NULL,
+  card_token = NULL,
+  card_exp_month = NULL,
+  card_exp_year = NULL,
+  card_number = NULL,
+  card_cvc = NULL,
+  card_holder = NULL,
+  address_city = NULL,
+  address_country = NULL,
+  address_line1 = NULL,
+  address_line2 = NULL,
+  address_state = NULL,
+  address_zip = NULL,
+  currency = NULL,
+  default_for_currency = NULL,
+  card_metadata = NULL
+)
 }
 \arguments{
 \item{id}{ID of customer to be updated}
 
 \item{account_balance}{An integer amount in cents that is the starting account
 balance for your customer. A negative amount represents a credit that will be
-used before attempting any charges to the customer’s card; a positive amount
+used before attempting any charges to the customer's card; a positive amount
 will be added to the next invoice.}
 
-\item{business_vat_id}{The customer’s VAT identification number. If you are
+\item{business_vat_id}{The customer's VAT identification number. If you are
 using Relay, this field gets passed to tax provider you are using for your
 orders. This can be unset by updating the value to \code{NULL}.}
 
@@ -31,7 +54,7 @@ orders. This can be unset by updating the value to \code{NULL}.}
 object. It can be useful for storing additional information about the customer
 in a structured format. This can be unset by updating the value to \code{NULL}.}
 
-\item{default_source}{ID of source to make the customer’s new default for
+\item{default_source}{ID of source to make the customer's new default for
 invoice payments}
 
 \item{coupon}{If you provide a coupon code, the customer will have a discount
@@ -42,7 +65,7 @@ have the discount.}
 object. It is displayed alongside the customer in the dashboard. This can be
 unset by updating the value to \code{NULL}.}
 
-\item{email}{Customer’s email address. It’s displayed alongside the customer
+\item{email}{Customer's email address. It's displayed alongside the customer
 in your dashboard and can be useful for searching and tracking. This can be
 unset by updating the value to \code{NULL}.}
 

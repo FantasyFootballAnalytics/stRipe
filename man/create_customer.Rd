@@ -4,25 +4,50 @@
 \alias{create_customer}
 \title{Create a customer}
 \usage{
-create_customer(account_balance = NULL, business_vat_id = NULL,
-  description = NULL, email = NULL, plan = NULL, quantity = NULL,
-  tax_percent = NULL, trial_end = NULL, source = NULL, coupon = NULL,
-  metadata = list(), ship_name = NULL, ship_city = NULL,
-  ship_country = NULL, ship_line1 = NULL, ship_line2 = NULL,
-  ship_state = NULL, ship_zip = NULL, ship_phone = NULL,
-  card_token = NULL, exp_month = NULL, exp_year = NULL, number = NULL,
-  cvc = NULL, name = NULL, address_city = NULL, address_country = NULL,
-  address_line1 = NULL, address_line2 = NULL, address_state = NULL,
-  address_zip = NULL, currency = NULL, default_for_currency = NULL,
-  card_metadata = list())
+create_customer(
+  account_balance = NULL,
+  business_vat_id = NULL,
+  description = NULL,
+  email = NULL,
+  plan = NULL,
+  quantity = NULL,
+  tax_percent = NULL,
+  trial_end = NULL,
+  source = NULL,
+  coupon = NULL,
+  metadata = list(),
+  ship_name = NULL,
+  ship_city = NULL,
+  ship_country = NULL,
+  ship_line1 = NULL,
+  ship_line2 = NULL,
+  ship_state = NULL,
+  ship_zip = NULL,
+  ship_phone = NULL,
+  card_token = NULL,
+  exp_month = NULL,
+  exp_year = NULL,
+  number = NULL,
+  cvc = NULL,
+  name = NULL,
+  address_city = NULL,
+  address_country = NULL,
+  address_line1 = NULL,
+  address_line2 = NULL,
+  address_state = NULL,
+  address_zip = NULL,
+  currency = NULL,
+  default_for_currency = NULL,
+  card_metadata = list()
+)
 }
 \arguments{
 \item{account_balance}{An integer amount in cents that is the starting account
 balance for your customer. A negative amount represents a credit that will be
-used before attempting any charges to the customer’s card; a positive amount
+used before attempting any charges to the customer's card; a positive amount
 will be added to the next invoice.}
 
-\item{business_vat_id}{The customer’s VAT identification number. If you are
+\item{business_vat_id}{The customer's VAT identification number. If you are
 using Relay, this field gets passed to tax provider you are using for your
 orders. This can be unset by updating the value to \code{NULL}.}
 
@@ -30,7 +55,7 @@ orders. This can be unset by updating the value to \code{NULL}.}
 object. It is displayed alongside the customer in the dashboard. This can be
 unset by updating the value to \code{NULL}.}
 
-\item{email}{Customer’s email address. It’s displayed alongside the customer
+\item{email}{Customer's email address. It's displayed alongside the customer
 in your dashboard and can be useful for searching and tracking. This can be
 unset by updating the value to \code{NULL}.}
 
@@ -40,7 +65,7 @@ that the customer is currently subscribed to.
 If you subscribe a customer to a plan without a free trial, the customer must
 have a valid card as well.}
 
-\item{quantity}{The quantity you’d like to apply to the subscription you’re
+\item{quantity}{The quantity you'd like to apply to the subscription you're
 creating (if you pass in a plan). For example, if your plan is 10 cents/user/month,
 and your customer has 5 users, you could pass 5 as the quantity to have the
 customer charged 50 cents (5 x 10 cents) monthly. Defaults to 1 if not set.
@@ -55,7 +80,7 @@ of 20.0 will charge $12 per invoice. Can only be used if a plan is provided}
 \item{trial_end}{Unix timestamp representing the end of the trial period the
 customer will get before being charged. If set, trial_end will override the
 default trial period of the plan the customer is being subscribed to.
-The special value now can be provided to end the customer’s trial immediately.
+The special value now can be provided to end the customer's trial immediately.
 Only applies when the plan parameter is also provided.}
 
 \item{coupon}{If you provide a coupon code, the customer will have a discount

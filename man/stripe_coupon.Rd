@@ -4,15 +4,14 @@
 \name{stripe_coupon}
 \alias{stripe_coupon}
 \title{Coupon Object}
-\format{An R6 Class object}
-\usage{
-stripe_coupon
+\format{
+An R6 Class object
 }
 \description{
 The \code{stripe_coupon} object represents the complete set of data required
 to manage coupons at Stripe. A coupon has either a \code{percent_off} or an
 \code{amount_off} and \code{currency}. If you set an \code{amount_off}, that
-amount will be subtracted from any invoice’s subtotal. For example, an invoice
+amount will be subtracted from any invoice's subtotal. For example, an invoice
 with a subtotal of $100 will have a final total of $0 if a coupon with an
 \code{amount_off} of 20000 is applied to it and an invoice with a subtotal of
 $300 will have a final total of $100 if a coupon with an \code{amount_off} of
@@ -29,4 +28,88 @@ $300 will have a final total of $100 if a coupon with an \code{amount_off} of
 }
 }
 
-\keyword{datasets}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{stripe_coupon$new()}}
+\item \href{#method-create}{\code{stripe_coupon$create()}}
+\item \href{#method-retrieve}{\code{stripe_coupon$retrieve()}}
+\item \href{#method-update}{\code{stripe_coupon$update()}}
+\item \href{#method-delete}{\code{stripe_coupon$delete()}}
+\item \href{#method-clone}{\code{stripe_coupon$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_coupon$new(..., metadata = list())}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-create"></a>}}
+\if{latex}{\out{\hypertarget{method-create}{}}}
+\subsection{Method \code{create()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_coupon$create(
+  id = NULL,
+  amount_off = NULL,
+  created = NULL,
+  currency = NULL,
+  duration,
+  duration_in_months = NULL,
+  max_redemptions = NULL,
+  metadata = list(),
+  percent_off = NULL,
+  redeem_by = NULL
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-retrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-retrieve}{}}}
+\subsection{Method \code{retrieve()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_coupon$retrieve(coupon_id)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-update"></a>}}
+\if{latex}{\out{\hypertarget{method-update}{}}}
+\subsection{Method \code{update()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_coupon$update(metadata = list())}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-delete"></a>}}
+\if{latex}{\out{\hypertarget{method-delete}{}}}
+\subsection{Method \code{delete()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_coupon$delete(coupon_id)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_coupon$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

@@ -4,9 +4,8 @@
 \name{stripe_plan}
 \alias{stripe_plan}
 \title{Plan Object}
-\format{An R6 Class object}
-\usage{
-stripe_plan
+\format{
+An R6 Class object
 }
 \description{
 The \code{stripe_plan} object represents the complete set of data required to
@@ -52,4 +51,92 @@ delete_plan <- stripe_plan$new()
 delete_plan$delete("testPlan1")
 
 }
-\keyword{datasets}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{stripe_plan$new()}}
+\item \href{#method-create}{\code{stripe_plan$create()}}
+\item \href{#method-retrieve}{\code{stripe_plan$retrieve()}}
+\item \href{#method-update}{\code{stripe_plan$update()}}
+\item \href{#method-delete}{\code{stripe_plan$delete()}}
+\item \href{#method-clone}{\code{stripe_plan$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_plan$new(..., metadata = list())}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-create"></a>}}
+\if{latex}{\out{\hypertarget{method-create}{}}}
+\subsection{Method \code{create()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_plan$create(
+  id,
+  amount,
+  currency,
+  interval,
+  nickname,
+  interval_count = NULL,
+  metadata = list(),
+  product = NULL,
+  trial_period_days = NULL
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-retrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-retrieve}{}}}
+\subsection{Method \code{retrieve()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_plan$retrieve(plan_id)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-update"></a>}}
+\if{latex}{\out{\hypertarget{method-update}{}}}
+\subsection{Method \code{update()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_plan$update(
+  metadata = NULL,
+  nickname = NULL,
+  product = NULL,
+  trial_period_days = NULL
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-delete"></a>}}
+\if{latex}{\out{\hypertarget{method-delete}{}}}
+\subsection{Method \code{delete()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_plan$delete(plan_id)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripe_plan$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

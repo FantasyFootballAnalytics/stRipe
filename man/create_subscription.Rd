@@ -4,14 +4,31 @@
 \alias{create_subscription}
 \title{Create a subscription}
 \usage{
-create_subscription(plan_id, customer_id, card_token = NULL,
-  exp_month = NULL, exp_year = NULL, number = NULL, cvc = NULL,
-  name = NULL, address_city = NULL, address_country = NULL,
-  address_line1 = NULL, address_line2 = NULL, address_state = NULL,
-  address_zip = NULL, currency = NULL, default_for_currency = NULL,
-  card_metadata = list(), coupon = NULL, application_fee_percent = NULL,
-  quantity = NULL, tax_percent = NULL, trial_end = NULL,
-  trial_period_days = NULL)
+create_subscription(
+  plan_id,
+  customer_id,
+  card_token = NULL,
+  exp_month = NULL,
+  exp_year = NULL,
+  number = NULL,
+  cvc = NULL,
+  name = NULL,
+  address_city = NULL,
+  address_country = NULL,
+  address_line1 = NULL,
+  address_line2 = NULL,
+  address_state = NULL,
+  address_zip = NULL,
+  currency = NULL,
+  default_for_currency = NULL,
+  card_metadata = list(),
+  coupon = NULL,
+  application_fee_percent = NULL,
+  quantity = NULL,
+  tax_percent = NULL,
+  trial_end = NULL,
+  trial_period_days = NULL
+)
 }
 \arguments{
 \item{plan_id}{The identifier of the plan to subscribe the customer to.}
@@ -52,12 +69,12 @@ not passed}
 applied to a subscription will only affect invoices created for that
 particular subscription}
 
-\item{quantity}{The quantity you’d like to apply to the subscription you’re
+\item{quantity}{The quantity you'd like to apply to the subscription you're
 creating. For example, if your plan is 10/user/month, and your customer has 5
 users, you could pass 5 as the quantity to have the customer charged 50 (5 x
-10) monthly. If you update a subscription but don’t change the plan ID (e.g.
+10) monthly. If you update a subscription but don't change the plan ID (e.g.
 changing only the trial_end), the subscription will inherit the old
-subscription’s quantity attribute unless you pass a new quantity parameter.
+subscription's quantity attribute unless you pass a new quantity parameter.
 If you update a subscription and change the plan ID, the new subscription
 will not inherit the quantity attribute and will default to 1 unless you pass
 a quantity parameter}
@@ -86,6 +103,6 @@ documentation for more information on the subscription object.
 \note{
 If the plan that the customer is being subscribed to requires payment,
 then the customer will either need to have an defined payment source, or a
-payment source (card token or card infomration) will need to be passed in the
+payment source (card token or card information) will need to be passed in the
 function.
 }
