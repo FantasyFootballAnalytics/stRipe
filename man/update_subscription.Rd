@@ -4,10 +4,18 @@
 \alias{update_subscription}
 \title{Update a subscription}
 \usage{
-update_subscription(subscription_id, plan = NULL, coupon = NULL,
-  prorate = NULL, proration_date = NULL, source = NULL,
-  application_fee_percent = NULL, metadata = list(), tax_percent = NULL,
-  trial_end = NULL)
+update_subscription(
+  subscription_id,
+  plan = NULL,
+  coupon = NULL,
+  prorate = NULL,
+  proration_date = NULL,
+  source = NULL,
+  application_fee_percent = NULL,
+  metadata = list(),
+  tax_percent = NULL,
+  trial_end = NULL
+)
 }
 \arguments{
 \item{subscription_id}{Identifier of subscription to be updated}

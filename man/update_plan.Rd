@@ -4,8 +4,13 @@
 \alias{update_plan}
 \title{Update a plan}
 \usage{
-update_plan(id, metadata = NULL, name = NULL, statement_descriptor = NULL,
-  trial_period_days = NULL)
+update_plan(
+  id,
+  metadata = NULL,
+  nickname = NULL,
+  product = NULL,
+  trial_period_days = NULL
+)
 }
 \arguments{
 \item{id}{The id of the plan to be updated}
@@ -14,13 +19,13 @@ update_plan(id, metadata = NULL, name = NULL, statement_descriptor = NULL,
 It can be useful for storing additional information about the plan in a
 structured format. This will be unset if you specicy \code{NULL}.}
 
+\item{trial_period_days}{Number of trial period days granted when subscribing
+a customer to this plan. \code{NULL} if the plan has no trial period}
+
 \item{name}{Display name of the plan}
 
 \item{statement_descriptor}{An arbitrary string to be displayed on your
 customer's credit card statement. This may be up to 22 characters}
-
-\item{trial_period_days}{Number of trial period days granted when subscribing
-a customer to this plan. \code{NULL} if the plan has no trial period}
 }
 \description{
 Updates the plan represented by the \code{id} provided and returns the updated

@@ -4,9 +4,8 @@
 \name{stripeApp}
 \alias{stripeApp}
 \title{stripeApp object}
-\format{An R6 Class object}
-\usage{
-stripeApp
+\format{
+An R6 Class object
 }
 \description{
 The \code{stripeApp} object represents the endpoint, version and API key used
@@ -29,4 +28,47 @@ set the API to the one you want to use.
 }
 }
 
-\keyword{datasets}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{stripeApp$new()}}
+\item \href{#method-request_url}{\code{stripeApp$request_url()}}
+\item \href{#method-clone}{\code{stripeApp$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripeApp$new(apiKey = as.character())}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-request_url"></a>}}
+\if{latex}{\out{\hypertarget{method-request_url}{}}}
+\subsection{Method \code{request_url()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripeApp$request_url(resource = NULL)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{stripeApp$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

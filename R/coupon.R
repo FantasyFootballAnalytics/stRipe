@@ -3,7 +3,7 @@
 #' The \code{stripe_coupon} object represents the complete set of data required
 #' to manage coupons at Stripe. A coupon has either a \code{percent_off} or an
 #' \code{amount_off} and \code{currency}. If you set an \code{amount_off}, that
-#' amount will be subtracted from any invoice’s subtotal. For example, an invoice
+#' amount will be subtracted from any invoice's subtotal. For example, an invoice
 #' with a subtotal of $100 will have a final total of $0 if a coupon with an
 #' \code{amount_off} of 20000 is applied to it and an invoice with a subtotal of
 #' $300 will have a final total of $100 if a coupon with an \code{amount_off} of

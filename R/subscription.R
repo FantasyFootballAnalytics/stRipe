@@ -187,7 +187,7 @@ newSubscription <- function(...){stripe_subscription$new(...)}
 #'
 #' @note If the plan that the customer is being subscribed to requires payment,
 #' then the customer will either need to have an defined payment source, or a
-#' payment source (card token or card infomration) will need to be passed in the
+#' payment source (card token or card information) will need to be passed in the
 #' function.
 #'
 #' @param plan_id The identifier of the plan to subscribe the customer to.
@@ -218,12 +218,12 @@ newSubscription <- function(...){stripe_subscription$new(...)}
 #' @param coupon The code of the coupon to apply to this subscription. A coupon
 #' applied to a subscription will only affect invoices created for that
 #' particular subscription
-#' @param quantity The quantity you’d like to apply to the subscription you’re
+#' @param quantity The quantity you'd like to apply to the subscription you're
 #' creating. For example, if your plan is 10/user/month, and your customer has 5
 #' users, you could pass 5 as the quantity to have the customer charged 50 (5 x
-#' 10) monthly. If you update a subscription but don’t change the plan ID (e.g.
+#' 10) monthly. If you update a subscription but don't change the plan ID (e.g.
 #' changing only the trial_end), the subscription will inherit the old
-#' subscription’s quantity attribute unless you pass a new quantity parameter.
+#' subscription's quantity attribute unless you pass a new quantity parameter.
 #' If you update a subscription and change the plan ID, the new subscription
 #' will not inherit the quantity attribute and will default to 1 unless you pass
 #' a quantity parameter

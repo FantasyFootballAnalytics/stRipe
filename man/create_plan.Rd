@@ -4,9 +4,17 @@
 \alias{create_plan}
 \title{Create a plan}
 \usage{
-create_plan(id, amount, currency, interval, name, interval_count = NULL,
-  metadata = list(), statement_descriptor = NULL,
-  trial_period_days = NULL)
+create_plan(
+  id,
+  amount,
+  currency,
+  interval,
+  nickname,
+  interval_count = NULL,
+  metadata = list(),
+  product = NULL,
+  trial_period_days = NULL
+)
 }
 \arguments{
 \item{id}{The id of plan to create}
@@ -18,21 +26,21 @@ create_plan(id, amount, currency, interval, name, interval_count = NULL,
 \item{interval}{One of \code{day, week, month or year}. The frequency with
 which a subscription should be billed.}
 
-\item{name}{Display name of the plan}
-
 \item{interval_count}{The number of intervals (specified in the interval
 property) between each subscription billing. For example,
 \code{interval = month} and \code{interval_count = 3} bills every 3 months}
 
 \item{metadata}{A set of key/value pairs that you can attach to a plan object.
 It can be useful for storing additional information about the plan in a
-structured format. This will be unset if you specicy \code{NULL}.}
-
-\item{statement_descriptor}{An arbitrary string to be displayed on your
-customer’s credit card statement. This may be up to 22 characters}
+structured format. This will be unset if you specify \code{NULL}.}
 
 \item{trial_period_days}{Number of trial period days granted when subscribing
 a customer to this plan. \code{NULL} if the plan has no trial period}
+
+\item{name}{Display name of the plan}
+
+\item{statement_descriptor}{An arbitrary string to be displayed on your
+customer's credit card statement. This may be up to 22 characters}
 }
 \description{
 Creates plan at Stripe and returns the \code{stripe_plan} object representing
