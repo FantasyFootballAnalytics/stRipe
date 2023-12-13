@@ -14,20 +14,21 @@ object_list <- R6::R6Class(
                           function(list_data){
                             list_object <- list_data$object
                             obj_func <- switch (list_object,
-                              "plan" = "newPlan",
-                              "card" = "newCard",
-                              "subscription" = "newSubscription",
-                              "line_item" = "newInvoiceLine",
-                              "invoiceitem" = "newInvoiceItem",
-                              "invoice" = "newInvoice",
-                              "coupon" = "newCoupon",
-                              "discount" = "newDiscount",
-                              "bank_account" = "newBankAccount",
-                              "token" = "newToken",
-                              "customer" = "newCustomer",
-                              "subscription_item" = "newSubitem",
-                              "list" = "newList",
-                              "source" = "newCard"
+                                                "plan" = "newPlan",
+                                                "card" = "newCard",
+                                                "subscription" = "newSubscription",
+                                                "line_item" = "newInvoiceLine",
+                                                "invoiceitem" = "newInvoiceItem",
+                                                "invoice" = "newInvoice",
+                                                "coupon" = "newCoupon",
+                                                "discount" = "newDiscount",
+                                                "bank_account" = "newBankAccount",
+                                                "token" = "newToken",
+                                                "customer" = "newCustomer",
+                                                "checkout_session" = "newCheckoutSession",
+                                                "subscription_item" = "newSubitem",
+                                                "list" = "newList",
+                                                "source" = "newCard"
                             )
                             obj_class = switch(list_object,
                                                "plan" = stripe_plan,
@@ -39,14 +40,15 @@ object_list <- R6::R6Class(
                                                "coupon" = stripe_coupon,
                                                "bank_account" = stripe_bank_account,
                                                "token" = stripe_token,
-                                               "customer" = stripe_customer
+                                               "customer" = stripe_customer,
+                                               "checkout_session" = stripe_checkout_session
                             )
                             object_param <- setdiff(names(list_data), "object")
                             object_param <- intersect(object_param, names(obj_class$public_fields))
 
                             return(do.call(obj_func, list_data[object_param]))
                           }
-                          )
+      )
     }
   )
 )

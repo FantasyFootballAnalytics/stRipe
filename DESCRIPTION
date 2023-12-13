@@ -10,11 +10,12 @@ LazyData: TRUE
 Imports:
     R6,
     httr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
 Collate: 
     'bank_account.R'
     'card.R'
     'card_dictionary.R'
+    'checkout_session.R'
     'coupon.R'
     'object_list.R'
     'discount.R'

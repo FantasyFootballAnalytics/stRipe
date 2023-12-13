@@ -31,14 +31,14 @@ set the API to the one you want to use.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{stripeApp$new()}}
-\item \href{#method-request_url}{\code{stripeApp$request_url()}}
-\item \href{#method-clone}{\code{stripeApp$clone()}}
+\item \href{#method-NA-new}{\code{stripeApp$new()}}
+\item \href{#method-NA-request_url}{\code{stripeApp$request_url()}}
+\item \href{#method-unknown-clone}{\code{stripeApp$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-NA-new"></a>}}
+\if{latex}{\out{\hypertarget{method-NA-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripeApp$new(apiKey = as.character())}\if{html}{\out{</div>}}
@@ -46,8 +46,8 @@ set the API to the one you want to use.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-request_url"></a>}}
-\if{latex}{\out{\hypertarget{method-request_url}{}}}
+\if{html}{\out{<a id="method-NA-request_url"></a>}}
+\if{latex}{\out{\hypertarget{method-NA-request_url}{}}}
 \subsection{Method \code{request_url()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripeApp$request_url(resource = NULL)}\if{html}{\out{</div>}}
@@ -55,8 +55,8 @@ set the API to the one you want to use.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-unknown-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-unknown-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
