@@ -49,7 +49,8 @@ creating a new Session each time your customer attempts to pay.
   customer = NULL,
   customer_email = NULL,
   currency = NULL,
-  line_items = NULL,
+  price = NULL,
+  quantity = NULL,
   metadata = list(),
   mode = NULL,
   success_url = NULL

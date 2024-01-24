@@ -31,17 +31,17 @@ $300 will have a final total of $100 if a coupon with an \code{amount_off} of
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{stripe_coupon$new()}}
-\item \href{#method-create}{\code{stripe_coupon$create()}}
-\item \href{#method-retrieve}{\code{stripe_coupon$retrieve()}}
-\item \href{#method-update}{\code{stripe_coupon$update()}}
-\item \href{#method-delete}{\code{stripe_coupon$delete()}}
-\item \href{#method-clone}{\code{stripe_coupon$clone()}}
+\item \href{#method-coupon-new}{\code{stripe_coupon$new()}}
+\item \href{#method-coupon-create}{\code{stripe_coupon$create()}}
+\item \href{#method-coupon-retrieve}{\code{stripe_coupon$retrieve()}}
+\item \href{#method-coupon-update}{\code{stripe_coupon$update()}}
+\item \href{#method-coupon-delete}{\code{stripe_coupon$delete()}}
+\item \href{#method-coupon-clone}{\code{stripe_coupon$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-coupon-new"></a>}}
+\if{latex}{\out{\hypertarget{method-coupon-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_coupon$new(..., metadata = list())}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ $300 will have a final total of $100 if a coupon with an \code{amount_off} of
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-create"></a>}}
-\if{latex}{\out{\hypertarget{method-create}{}}}
+\if{html}{\out{<a id="method-coupon-create"></a>}}
+\if{latex}{\out{\hypertarget{method-coupon-create}{}}}
 \subsection{Method \code{create()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_coupon$create(
@@ -69,8 +69,8 @@ $300 will have a final total of $100 if a coupon with an \code{amount_off} of
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-retrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-retrieve}{}}}
+\if{html}{\out{<a id="method-coupon-retrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-coupon-retrieve}{}}}
 \subsection{Method \code{retrieve()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_coupon$retrieve(coupon_id)}\if{html}{\out{</div>}}
@@ -78,8 +78,8 @@ $300 will have a final total of $100 if a coupon with an \code{amount_off} of
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-update"></a>}}
-\if{latex}{\out{\hypertarget{method-update}{}}}
+\if{html}{\out{<a id="method-coupon-update"></a>}}
+\if{latex}{\out{\hypertarget{method-coupon-update}{}}}
 \subsection{Method \code{update()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_coupon$update(metadata = list())}\if{html}{\out{</div>}}
@@ -87,8 +87,8 @@ $300 will have a final total of $100 if a coupon with an \code{amount_off} of
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delete"></a>}}
-\if{latex}{\out{\hypertarget{method-delete}{}}}
+\if{html}{\out{<a id="method-coupon-delete"></a>}}
+\if{latex}{\out{\hypertarget{method-coupon-delete}{}}}
 \subsection{Method \code{delete()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_coupon$delete(coupon_id)}\if{html}{\out{</div>}}
@@ -96,8 +96,8 @@ $300 will have a final total of $100 if a coupon with an \code{amount_off} of
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-coupon-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-coupon-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

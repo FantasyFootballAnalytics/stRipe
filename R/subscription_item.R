@@ -38,8 +38,8 @@ stripe_sub_item <- R6::R6Class(
         create_param$quantity <- quantity
 
       new_item <- stripe_request(private$subitem_url(),
-                                request_body = create_param,
-                                request_type = "POST")
+                                 request_body = create_param,
+                                 request_type = "POST")
 
       for(new_var in setdiff(names(new_item), "plan")){
         self[[new_var]] <- new_item[[new_var]]
@@ -74,8 +74,8 @@ stripe_sub_item <- R6::R6Class(
 
       if(length(update_param) > 0){
         update_item <- stripe_request(private$subitem_url(item_id),
-                                   request_body = update_param,
-                                   request_type = "POST")
+                                      request_body = update_param,
+                                      request_type = "POST")
 
         for(new_var in setdiff(names(update_item), "plan")){
           self[[new_var]] <- update_item[[new_var]]

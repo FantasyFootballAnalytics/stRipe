@@ -26,17 +26,17 @@ You can use this object to create, delete, and update customers.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{stripe_customer$new()}}
-\item \href{#method-create}{\code{stripe_customer$create()}}
-\item \href{#method-retrieve}{\code{stripe_customer$retrieve()}}
-\item \href{#method-update}{\code{stripe_customer$update()}}
-\item \href{#method-delete}{\code{stripe_customer$delete()}}
-\item \href{#method-clone}{\code{stripe_customer$clone()}}
+\item \href{#method-customer-new}{\code{stripe_customer$new()}}
+\item \href{#method-customer-create}{\code{stripe_customer$create()}}
+\item \href{#method-customer-retrieve}{\code{stripe_customer$retrieve()}}
+\item \href{#method-customer-update}{\code{stripe_customer$update()}}
+\item \href{#method-customer-delete}{\code{stripe_customer$delete()}}
+\item \href{#method-customer-clone}{\code{stripe_customer$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-customer-new"></a>}}
+\if{latex}{\out{\hypertarget{method-customer-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_customer$new(
@@ -51,8 +51,8 @@ You can use this object to create, delete, and update customers.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-create"></a>}}
-\if{latex}{\out{\hypertarget{method-create}{}}}
+\if{html}{\out{<a id="method-customer-create"></a>}}
+\if{latex}{\out{\hypertarget{method-customer-create}{}}}
 \subsection{Method \code{create()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_customer$create(
@@ -95,8 +95,8 @@ You can use this object to create, delete, and update customers.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-retrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-retrieve}{}}}
+\if{html}{\out{<a id="method-customer-retrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-customer-retrieve}{}}}
 \subsection{Method \code{retrieve()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_customer$retrieve(customer_id)}\if{html}{\out{</div>}}
@@ -104,8 +104,8 @@ You can use this object to create, delete, and update customers.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-update"></a>}}
-\if{latex}{\out{\hypertarget{method-update}{}}}
+\if{html}{\out{<a id="method-customer-update"></a>}}
+\if{latex}{\out{\hypertarget{method-customer-update}{}}}
 \subsection{Method \code{update()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_customer$update(
@@ -144,8 +144,8 @@ You can use this object to create, delete, and update customers.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delete"></a>}}
-\if{latex}{\out{\hypertarget{method-delete}{}}}
+\if{html}{\out{<a id="method-customer-delete"></a>}}
+\if{latex}{\out{\hypertarget{method-customer-delete}{}}}
 \subsection{Method \code{delete()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_customer$delete(customer_id)}\if{html}{\out{</div>}}
@@ -153,8 +153,8 @@ You can use this object to create, delete, and update customers.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-customer-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-customer-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

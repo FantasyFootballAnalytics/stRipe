@@ -11,13 +11,13 @@ Stripe Line Item
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{stripe_line_item$new()}}
-\item \href{#method-clone}{\code{stripe_line_item$clone()}}
+\item \href{#method-line_item-new}{\code{stripe_line_item$new()}}
+\item \href{#method-line_item-clone}{\code{stripe_line_item$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-line_item-new"></a>}}
+\if{latex}{\out{\hypertarget{method-line_item-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_line_item$new(..., plan = NULL, metadata = list(), period = list())}\if{html}{\out{</div>}}
@@ -25,8 +25,8 @@ Stripe Line Item
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-line_item-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-line_item-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

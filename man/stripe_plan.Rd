@@ -54,17 +54,17 @@ delete_plan$delete("testPlan1")
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{stripe_plan$new()}}
-\item \href{#method-create}{\code{stripe_plan$create()}}
-\item \href{#method-retrieve}{\code{stripe_plan$retrieve()}}
-\item \href{#method-update}{\code{stripe_plan$update()}}
-\item \href{#method-delete}{\code{stripe_plan$delete()}}
-\item \href{#method-clone}{\code{stripe_plan$clone()}}
+\item \href{#method-plan-new}{\code{stripe_plan$new()}}
+\item \href{#method-plan-create}{\code{stripe_plan$create()}}
+\item \href{#method-plan-retrieve}{\code{stripe_plan$retrieve()}}
+\item \href{#method-plan-update}{\code{stripe_plan$update()}}
+\item \href{#method-plan-delete}{\code{stripe_plan$delete()}}
+\item \href{#method-plan-clone}{\code{stripe_plan$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-plan-new"></a>}}
+\if{latex}{\out{\hypertarget{method-plan-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_plan$new(..., metadata = list())}\if{html}{\out{</div>}}
@@ -72,8 +72,8 @@ delete_plan$delete("testPlan1")
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-create"></a>}}
-\if{latex}{\out{\hypertarget{method-create}{}}}
+\if{html}{\out{<a id="method-plan-create"></a>}}
+\if{latex}{\out{\hypertarget{method-plan-create}{}}}
 \subsection{Method \code{create()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_plan$create(
@@ -91,8 +91,8 @@ delete_plan$delete("testPlan1")
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-retrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-retrieve}{}}}
+\if{html}{\out{<a id="method-plan-retrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-plan-retrieve}{}}}
 \subsection{Method \code{retrieve()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_plan$retrieve(plan_id)}\if{html}{\out{</div>}}
@@ -100,8 +100,8 @@ delete_plan$delete("testPlan1")
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-update"></a>}}
-\if{latex}{\out{\hypertarget{method-update}{}}}
+\if{html}{\out{<a id="method-plan-update"></a>}}
+\if{latex}{\out{\hypertarget{method-plan-update}{}}}
 \subsection{Method \code{update()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_plan$update(
@@ -114,8 +114,8 @@ delete_plan$delete("testPlan1")
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delete"></a>}}
-\if{latex}{\out{\hypertarget{method-delete}{}}}
+\if{html}{\out{<a id="method-plan-delete"></a>}}
+\if{latex}{\out{\hypertarget{method-plan-delete}{}}}
 \subsection{Method \code{delete()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_plan$delete(plan_id)}\if{html}{\out{</div>}}
@@ -123,8 +123,8 @@ delete_plan$delete("testPlan1")
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-plan-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-plan-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

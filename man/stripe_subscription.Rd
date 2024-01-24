@@ -35,17 +35,17 @@ particular plan that was previously created.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{stripe_subscription$new()}}
-\item \href{#method-create}{\code{stripe_subscription$create()}}
-\item \href{#method-retrieve}{\code{stripe_subscription$retrieve()}}
-\item \href{#method-update}{\code{stripe_subscription$update()}}
-\item \href{#method-cancelSub}{\code{stripe_subscription$cancelSub()}}
-\item \href{#method-clone}{\code{stripe_subscription$clone()}}
+\item \href{#method-subscription-new}{\code{stripe_subscription$new()}}
+\item \href{#method-subscription-create}{\code{stripe_subscription$create()}}
+\item \href{#method-subscription-retrieve}{\code{stripe_subscription$retrieve()}}
+\item \href{#method-subscription-update}{\code{stripe_subscription$update()}}
+\item \href{#method-subscription-cancelSub}{\code{stripe_subscription$cancelSub()}}
+\item \href{#method-subscription-clone}{\code{stripe_subscription$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-subscription-new"></a>}}
+\if{latex}{\out{\hypertarget{method-subscription-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_subscription$new(..., plan = NULL, metadata = list())}\if{html}{\out{</div>}}
@@ -53,8 +53,8 @@ particular plan that was previously created.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-create"></a>}}
-\if{latex}{\out{\hypertarget{method-create}{}}}
+\if{html}{\out{<a id="method-subscription-create"></a>}}
+\if{latex}{\out{\hypertarget{method-subscription-create}{}}}
 \subsection{Method \code{create()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_subscription$create(
@@ -87,8 +87,8 @@ particular plan that was previously created.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-retrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-retrieve}{}}}
+\if{html}{\out{<a id="method-subscription-retrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-subscription-retrieve}{}}}
 \subsection{Method \code{retrieve()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_subscription$retrieve(sub_id)}\if{html}{\out{</div>}}
@@ -96,8 +96,8 @@ particular plan that was previously created.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-update"></a>}}
-\if{latex}{\out{\hypertarget{method-update}{}}}
+\if{html}{\out{<a id="method-subscription-update"></a>}}
+\if{latex}{\out{\hypertarget{method-subscription-update}{}}}
 \subsection{Method \code{update()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_subscription$update(
@@ -116,8 +116,8 @@ particular plan that was previously created.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-cancelSub"></a>}}
-\if{latex}{\out{\hypertarget{method-cancelSub}{}}}
+\if{html}{\out{<a id="method-subscription-cancelSub"></a>}}
+\if{latex}{\out{\hypertarget{method-subscription-cancelSub}{}}}
 \subsection{Method \code{cancelSub()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_subscription$cancelSub(end_of_period = FALSE)}\if{html}{\out{</div>}}
@@ -125,8 +125,8 @@ particular plan that was previously created.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-subscription-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-subscription-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

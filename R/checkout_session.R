@@ -18,7 +18,7 @@ stripe_checkout_session <- R6::R6Class(
   "checkout_session", lock_objects = FALSE,
   public = list(
     id  = NULL, object = "checkout.session", client_reference_id = NULL, currency = NULL,
-    customer = NULL, customer_email = NULL, line_items = NULL, mode = NULL, payment_intent = NULL, payment_status = NULL,
+    customer = NULL, customer_email = NULL, line_items = NULL, price = NULL, quantity = NULL, mode = NULL, payment_intent = NULL, payment_status = NULL,
     status = NULL, success_url = NULL, url = NULL, livemode = NULL, metadata = list(),
     created = NULL,
 
@@ -33,16 +33,19 @@ stripe_checkout_session <- R6::R6Class(
     },
 #"subscription"
     create = function(client_reference_id = NULL, customer = NULL, customer_email = NULL,
-                      currency = NULL, line_items = NULL, metadata = list(),  mode = NULL,
+                      currency = NULL, price = NULL, quantity = NULL, metadata = list(),  mode = NULL,
                       success_url = NULL){
-      #browser()
+
       create_vars <-  as.list(match.call())[-1]
 
       create_params <- list(customer = customer,
-                            line_items = line_items,
-                            mode = mode)
+                            "line_items[0][price]" = price,
+                            "line_items[0][quantity]" = quantity,
+                            mode = mode,
+                            success_url = success_url)
+
       optional  <- intersect(names(create_vars),
-                             c("client_reference_id", "customer_email", "currency", "success_url"))
+                             c("client_reference_id", "customer_email", "currency"))
 
       for(opt_var in optional){
           create_params[[opt_var]] <- create_vars[[opt_var]]
