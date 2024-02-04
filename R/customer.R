@@ -258,7 +258,7 @@ stripe_customer <- R6::R6Class(
   ),
   private = list(
     customer_url = function(customer_id = NULL){
-      self_url <- app$request_url("customers")
+      self_url <- paste0(app$request_url("customers"), "?expand[0]=subscriptions")
 
       if(!is.null(customer_id)){
         url_path <-  httr::parse_url(self_url)$path
