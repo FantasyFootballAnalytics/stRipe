@@ -129,7 +129,7 @@ stripe_subscription <- R6::R6Class(
 
       invisible(self)
     },
-    update = function(plan = NULL, coupon = NULL, items = list(),
+    update = function(plan = NULL, cancel_at_period_end = NULL, coupon = NULL, items = list(),
                       prorate = NULL, proration_date = NULL, source = NULL,
                       application_fee_percent = NULL, metadata = list(),
                       tax_percent = NULL, trial_end = NULL){
@@ -141,7 +141,7 @@ stripe_subscription <- R6::R6Class(
       if(any(names(update_params) == "metadata"))
         update_params$metadata <- metadata
 
-      updated_sub <- stripe_request(subscription_url(self$id),
+      updated_sub <- stripe_request(private$subscription_url(self$id),
                                     request_body = update_params,
                                     request_type = "POST")
       sub_vars <- intersect(c("application_fee_percent", "metadata", "tax_percent", "trial_end"),
@@ -155,13 +155,12 @@ stripe_subscription <- R6::R6Class(
       invisible(self)
     },
 
-    cancelSub = function(end_of_period = FALSE){
+    cancelSub = function(){
 
       cancel_sub <-stripe_request(private$subscription_url(self$id),
-                                  request_body = list(at_period_end = tolower(as.character(end_of_period))),
+                                  request_body = list(),
                                   request_type = "DELETE")
       self$status <- cancel_sub$status
-      self$cancel_at_period_end <- cancel_sub$cancel_at_period_end
     }
 
   ),

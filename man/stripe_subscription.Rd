@@ -102,6 +102,7 @@ particular plan that was previously created.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{stripe_subscription$update(
   plan = NULL,
+  cancel_at_period_end = NULL,
   coupon = NULL,
   items = list(),
   prorate = NULL,
@@ -120,7 +121,7 @@ particular plan that was previously created.
 \if{latex}{\out{\hypertarget{method-subscription-cancelSub}{}}}
 \subsection{Method \code{cancelSub()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{stripe_subscription$cancelSub(end_of_period = FALSE)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{stripe_subscription$cancelSub()}\if{html}{\out{</div>}}
 }
 
 }
