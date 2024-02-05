@@ -292,7 +292,7 @@ get_subscription <- function(id){
 #' will override the default trial period of the plan the customer is being
 #' subscribed to
 #' @export
-update_subscription <- function(subscription_id, plan = NULL, coupon = NULL,
+update_subscription <- function(subscription_id, plan = NULL, cancel_at_period_end = NULL, coupon = NULL,
                                 prorate = NULL, proration_date = NULL, source = NULL,
                                 application_fee_percent = NULL, metadata = list(),
                                 tax_percent = NULL, trial_end = NULL){
