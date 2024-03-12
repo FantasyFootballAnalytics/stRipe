@@ -3,7 +3,7 @@
 \docType{class}
 \name{stripe_checkout_session}
 \alias{stripe_checkout_session}
-\title{Coupon Object}
+\title{Checkout Session Object}
 \format{
 An R6 Class object
 }

@@ -26,6 +26,7 @@ object_list <- R6::R6Class(
                                                 "token" = "newToken",
                                                 "customer" = "newCustomer",
                                                 "checkout_session" = "newCheckoutSession",
+                                                "billing_portal_session" = "newBillingPortalSession",
                                                 "subscription_item" = "newSubitem",
                                                 "list" = "newList",
                                                 "source" = "newCard"
@@ -41,7 +42,9 @@ object_list <- R6::R6Class(
                                                "bank_account" = stripe_bank_account,
                                                "token" = stripe_token,
                                                "customer" = stripe_customer,
-                                               "checkout_session" = stripe_checkout_session
+                                               "checkout_session" = stripe_checkout_session,
+                                               "billing_portal_session" = stripe_billing_portal_session
+
                             )
                             object_param <- setdiff(names(list_data), "object")
                             object_param <- intersect(object_param, names(obj_class$public_fields))

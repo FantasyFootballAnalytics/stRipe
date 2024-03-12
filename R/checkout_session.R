@@ -1,4 +1,4 @@
-#' Coupon Object
+#' Checkout Session Object
 #'
 #' The \code{stripe_checkout_session} represents your customer's session as they pay for
 #' one-time purchases or subscriptions through Checkout or Payment Links. We recommend

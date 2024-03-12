@@ -7,6 +7,7 @@
 update_subscription(
   subscription_id,
   plan = NULL,
+  cancel_at_period_end = NULL,
   coupon = NULL,
   prorate = NULL,
   proration_date = NULL,
