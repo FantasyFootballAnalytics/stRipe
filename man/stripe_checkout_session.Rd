@@ -53,7 +53,10 @@ creating a new Session each time your customer attempts to pay.
   quantity = NULL,
   metadata = list(),
   mode = NULL,
-  success_url = NULL
+  success_url = NULL,
+  billing_address_collection = NULL,
+  update_name = NULL,
+  update_address = NULL
 )}\if{html}{\out{</div>}}
 }
 

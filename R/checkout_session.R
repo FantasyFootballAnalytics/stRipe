@@ -19,7 +19,7 @@ stripe_checkout_session <- R6::R6Class(
   public = list(
     id  = NULL, object = "checkout.session", client_reference_id = NULL, currency = NULL,
     customer = NULL, customer_email = NULL, line_items = NULL, price = NULL, quantity = NULL, mode = NULL, payment_intent = NULL, payment_status = NULL,
-    status = NULL, success_url = NULL, url = NULL, livemode = NULL, metadata = list(),
+    status = NULL, success_url = NULL, url = NULL, livemode = NULL, billing_address_collection = NULL, metadata = list(),
     created = NULL,
 
     initialize = function(..., metadata = list()){
@@ -34,14 +34,17 @@ stripe_checkout_session <- R6::R6Class(
 #"subscription"
     create = function(client_reference_id = NULL, customer = NULL, customer_email = NULL,
                       currency = NULL, price = NULL, quantity = NULL, metadata = list(),  mode = NULL,
-                      success_url = NULL){
+                      success_url = NULL, billing_address_collection = NULL, update_name = NULL, update_address = NULL) {
 
       create_vars <-  as.list(match.call())[-1]
 
       create_params <- list(customer = customer,
                             "line_items[0][price]" = price,
                             "line_items[0][quantity]" = quantity,
+                            "customer_update[name]" = update_name,
+                            "customer_update[address]" = update_address,
                             mode = mode,
+                            billing_address_collection = billing_address_collection,
                             success_url = success_url)
 
       optional  <- intersect(names(create_vars),
