@@ -50,6 +50,20 @@ setApiKey <- function(key_value){
   app$apiKey <- key_value
 }
 
+#' Search
+#'
+#' Returns database objects using the Stripe Search
+#'
+#' @param resource Character string representing object type to search for
+#' @param query Character string representing the query in the format specified at https://docs.stripe.com/search#search-query-language
+#' @export
+stripe_search <- function(resource, query = null){
+  search_params <- list(query = query)
+  search_results <- stripe_request(paste(app$request_url(resource), "search", sep = "/"),
+                                   request_body = search_params,
+                                   request_type = "GET")
+  return(search_results)
+}
 
 stripe_request <- function(request_url, request_body = NULL, request_type = "GET",
                           idempotency_key = NULL){
