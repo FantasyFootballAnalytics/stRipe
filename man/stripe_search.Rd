@@ -4,12 +4,16 @@
 \alias{stripe_search}
 \title{Search}
 \usage{
-stripe_search(resource, query = null)
+stripe_search(resource, query = NULL, limit = NULL, page = NULL)
 }
 \arguments{
 \item{resource}{Character string representing object type to search for}
 
 \item{query}{Character string representing the query in the format specified at https://docs.stripe.com/search#search-query-language}
+
+\item{limit}{Integer representing number of records to return from 1 to 100, defaults to 10 on API backend}
+
+\item{page}{Character string to paginate when number of results exceeds the limit parameter, using the `next_page` value from the returning data structure in the previous search call}
 }
 \description{
 Returns database objects using the Stripe Search

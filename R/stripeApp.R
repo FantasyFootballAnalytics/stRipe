@@ -56,9 +56,20 @@ setApiKey <- function(key_value){
 #'
 #' @param resource Character string representing object type to search for
 #' @param query Character string representing the query in the format specified at https://docs.stripe.com/search#search-query-language
+#' @param limit Integer representing number of records to return from 1 to 100, defaults to 10 on API backend
+#' @param page Character string to paginate when number of results exceeds the limit parameter, using the `next_page` value from the returning data structure in the previous search call
 #' @export
-stripe_search <- function(resource, query = null){
+stripe_search <- function(resource, query = NULL, limit = NULL, page = NULL){
   search_params <- list(query = query)
+
+  if (!is.null(limit)) {
+    search_params[[limit]] <- limit
+    }
+
+  if (!is.null(page)) {
+    search_params[[page]] <- page
+    }
+
   search_results <- stripe_request(paste(app$request_url(resource), "search", sep = "/"),
                                    request_body = search_params,
                                    request_type = "GET")
