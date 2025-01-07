@@ -57,22 +57,32 @@ setApiKey <- function(key_value){
 #' @param resource Character string representing object type to search for
 #' @param query Character string representing the query in the format specified at https://docs.stripe.com/search#search-query-language
 #' @param limit Integer representing number of records to return from 1 to 100, defaults to 10 on API backend
-#' @param page Character string to paginate when number of results exceeds the limit parameter, using the `next_page` value from the returning data structure in the previous search call
 #' @export
-stripe_search <- function(resource, query = NULL, limit = NULL, page = NULL){
-  search_params <- list(query = query)
+stripe_search <- function(resource, query = NULL, limit = NULL){
+  search_param <- list(query = query)
 
   if (!is.null(limit)) {
-    search_params[[limit]] <- limit
+    search_param$limit <- limit
+  } else {
+    search_param$limit <- 100
+  }
+
+  search_results <- list()
+  has_more = TRUE
+  page = NULL
+  while (has_more) {
+    if (!is.null(page)) {
+      search_param$page <- page
     }
 
-  if (!is.null(page)) {
-    search_params[[page]] <- page
-    }
-
-  search_results <- stripe_request(paste(app$request_url(resource), "search", sep = "/"),
-                                   request_body = search_params,
+    iter_results <- stripe_request(paste(app$request_url(resource), "search", sep = "/"),
+                                   request_body = search_param,
                                    request_type = "GET")
+    search_results <- c(search_results, iter_results$data)
+    has_more <- iter_results$has_more
+    page <- iter_results$next_page
+  }
+
   return(search_results)
 }
 
