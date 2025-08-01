@@ -69,6 +69,13 @@ stripe_customer <- R6::R6Class(
                       address_line1 = NULL, address_line2 = NULL,
                       address_state = NULL, address_zip = NULL, currency = NULL,
                       default_for_currency = NULL, card_metadata = list(), idempotency_key = NULL){
+
+      existing_users <- stripe_search(
+        resource = "customers",
+        query = paste0("email:'", email, "'")
+      )
+      if (length(existing_users) > 0) {return()}
+
       func_param <- as.list(match.call())[-1]
       create_param <- list()
       cust_vars <- c("account_balance", "business_vat_id", "description", "email",
